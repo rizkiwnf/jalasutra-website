@@ -13,6 +13,24 @@ body {
   background-color: #F1F1F1;
 }
 
-.menu-topbar li:hover{
-  text-decoration: underline;
+.menu-topbar li{
+  position: relative;
 }
+.menu-topbar li a{
+  font-weight: 600;
+  transition: 0.5s ease-in-out;
+}
+.menu-topbar li a:hover{
+  color: cadetblue;
+}
+.menu-topbar li a:hover::after{
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
+  border-radius: 50px;
+}
+
