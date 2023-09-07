@@ -6,9 +6,10 @@ import line from "./../assets/images/line-main.png";
 
 const Layanan = () => {
   return (
-    <div className="main-page">
+    <div className="layanan">
       <TopBar />
       <div className="container w-full mx-auto my-9">
+        {/* search bar */}
         <div className="w-full p-5">
           <div className="container mx-auto">
             <div className="relative">
@@ -38,41 +39,38 @@ const Layanan = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between">
-          <div className="w-96 text-center text-sm font-semibold flex flex-col gap-5">
-            <div className="flex flex-wrap gap-4">
-              {/* Card 1 */}
-              <div className="w-96 text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-                <p className="mb-2">
-                  Ada Nama Desa Tak Biasa, Benarkah Dulunya adalah Hutan ?
-                </p>
-                <p className="text-xs font-thin">20 Maret 2023</p>
-              </div>
+        {/* end of search */}
+        <div className="flex flex-wrap gap-4">
+          {/* Card 1 */}
+          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
+            <p className="mb-2">
+              App Jalasutra
+            </p>
+            <p className="text-xs font-thin">Layanan surat menyurat desa di lingkup kecamatan Wates</p>
+          </div>
 
-              {/* Card 2 */}
-              <div className="w-96 text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-                <p className="mb-2">
-                  Ada Nama Desa Tak Biasa, Benarkah Dulunya adalah Hutan ?
-                </p>
-                <p className="text-xs font-thin">20 Maret 2023</p>
-              </div>
+          {/* Card 2 */}
+          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
+            <p className="mb-2">
+              SKM
+            </p>
+            <p className="text-xs font-thin">Survey Kepuasan Masyarakat milik kecamatan Wates</p>
+          </div>
 
-              {/* Card 3 */}
-              <div className="w-96 text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-                <p className="mb-2">
-                  Ada Nama Desa Tak Biasa, Benarkah Dulunya adalah Hutan ?
-                </p>
-                <p className="text-xs font-thin">20 Maret 2023</p>
-              </div>
+          {/* Card 3 */}
+          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
+            <p className="mb-2">
+              SKM
+            </p>
+            <p className="text-xs font-thin">Survey Kepuasan Masyarakat milik kecamatan Wates</p>
+          </div>
 
-              {/* Card 4 */}
-              <div className="w-96 text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-                <p className="mb-2">
-                  Ada Nama Desa Tak Biasa, Benarkah Dulunya adalah Hutan ?
-                </p>
-                <p className="text-xs font-thin">20 Maret 2023</p>
-              </div>
-            </div>
+          {/* Card 4 */}
+          <div className="w-96 text-left text-sm font-semibold p-4 border rounded-lg shadow-md">
+            <p className="mb-2">
+              Ada Nama Desa Tak Biasa, Benarkah Dulunya adalah Hutan ?
+            </p>
+            <p className="text-xs font-thin">20 Maret 2023</p>
           </div>
         </div>
       </div>
