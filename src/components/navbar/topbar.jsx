@@ -1,8 +1,9 @@
 import React from "react";
 import Logo from './../../assets/images/jalasutra-logo.png'
+import { Link } from 'react-router-dom';
 
 const TopBar = () => {
-    return(
+    return (
         <div className="bg-white top-bar border-b border-gray-200">
             <div className="container w-full mx-auto ">
                 <nav className="flex justify-between p-3 items-center">
@@ -12,16 +13,16 @@ const TopBar = () => {
                     <div className="menu-topbar">
                         <ul className="flex gap-5">
                             <li>
-                                Home
+                                <Link to="/">Beranda</Link>
                             </li>
                             <li>
-                                Layanan
+                                <Link to="/layanan">Layanan</Link>
                             </li>
                             <li>
-                                Berita
+                                <Link to="/berita">Berita</Link>
                             </li>
                             <li>
-                                Tentang
+                                <Link to="/tentang">Tentang</Link>
                             </li>
                         </ul>
                     </div>
@@ -30,10 +31,10 @@ const TopBar = () => {
                             Masuk
                         </button>
                     </div>
-
                 </nav>
             </div>
         </div>
     )
 }
+
 export default TopBar;
