@@ -56,18 +56,16 @@ const Layanan = () => {
 
           {/* Card 3 */}
           <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">SKM</p>
-            <p className="text-xs font-thin">
-              Survey Kepuasan Masyarakat milik kecamatan Wates
-            </p>
+            <p className="mb-2">Cetak E-KTP</p>
+            <p className="text-xs font-thin">Cetak E-KTP dari rumah</p>
           </div>
 
           {/* Card 4 */}
-          <div className="w-96 text-left text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">
-              Ada Nama Desa Tak Biasa, Benarkah Dulunya adalah Hutan ?
+          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
+            <p className="mb-2">I-Mobil</p>
+            <p className="text-xs font-thin">
+              Aplikasi perizinan milik kabupaten Blitar
             </p>
-            <p className="text-xs font-thin">20 Maret 2023</p>
           </div>
         </div>
       </div>
