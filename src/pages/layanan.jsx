@@ -40,26 +40,26 @@ const Layanan = () => {
         <div className="flex flex-wrap gap-4">
           {/* Card 1 */}
           <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">
-              App Jalasutra
+            <p className="mb-2">App Jalasutra</p>
+            <p className="text-xs font-thin">
+              Layanan surat menyurat desa di lingkup kecamatan Wates
             </p>
-            <p className="text-xs font-thin">Layanan surat menyurat desa di lingkup kecamatan Wates</p>
           </div>
 
           {/* Card 2 */}
           <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">
-              SKM
+            <p className="mb-2">SKM</p>
+            <p className="text-xs font-thin">
+              Survey Kepuasan Masyarakat milik kecamatan Wates
             </p>
-            <p className="text-xs font-thin">Survey Kepuasan Masyarakat milik kecamatan Wates</p>
           </div>
 
           {/* Card 3 */}
           <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">
-              SKM
+            <p className="mb-2">SKM</p>
+            <p className="text-xs font-thin">
+              Survey Kepuasan Masyarakat milik kecamatan Wates
             </p>
-            <p className="text-xs font-thin">Survey Kepuasan Masyarakat milik kecamatan Wates</p>
           </div>
 
           {/* Card 4 */}
