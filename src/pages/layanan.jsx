@@ -1,8 +1,5 @@
 import React from "react";
 import TopBar from "../components/navbar/topbar";
-import image1 from "./../assets/images/image-main-static.png";
-import image2 from "./../assets/images/image-1.png";
-import line from "./../assets/images/line-main.png";
 
 const Layanan = () => {
   return (
