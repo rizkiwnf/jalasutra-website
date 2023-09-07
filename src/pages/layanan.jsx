@@ -56,7 +56,7 @@ const Layanan = () => {
 
           {/* Card 3 */}
           <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">Cetak E-KTP</p>
+            <p className="mb-2">Cetak KTP</p>
             <p className="text-xs font-thin">Cetak E-KTP dari rumah</p>
           </div>
 
