@@ -1,12 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import TopBar from "../components/navbar/topbar";
 
 const Layanan = () => {
+  const [filter, setFilter] = useState("Semua");
+
+  const sampleData = [
+    // Define your sample data here
+    // For example:
+    {
+      title: "App Jalasutra",
+      description: "Layanan surat menyurat desa di lingkup kecamatan Wates",
+      category: "Kecamatan", // Specify the category for each item
+    },
+    {
+      title: "SKM",
+      description: "Survey Kepuasan Masyarakat milik kecamatan Wates",
+      category: "Kecamatan",
+    },
+    {
+      title: "Cetak KTP",
+      description: "Cetak E-KTP dari rumah",
+      category: "Provinsi Jatim",
+    },
+    {
+      title: "I-Mobil",
+      description: "Aplikasi perizinan milik kabupaten Blitar",
+      category: "Pemkab Blitar",
+    },
+    {
+      title: "Website Blitarkab",
+      description: "Website resmi pemerintah kabupaten Blitar",
+      category: "Pemkab Blitar",
+    },
+    {
+      title: "Data Kecamatan",
+      description: "Informasi kecamatan dalam angka kabupaten Blitar",
+      category: "Kecamatan",
+    },
+    {
+      title: "PPDB Online",
+      description: "PPDB Kabupaten Blitar",
+      category: "Pemkab Blitar",
+    },
+    {
+      title: "Bank Jatim",
+      description: "Informasi kredit bank Jatim",
+      category: "Provinsi Jatim",
+    },
+  ];
+
+  const filteredData =
+    filter === "Semua"
+      ? sampleData
+      : sampleData.filter((item) => item.category === filter);
+
   return (
     <div className="layanan">
       <TopBar />
       <div className="container w-full mx-auto my-9">
-        {/* search bar */}
+        {/* Add your search bar here */}
+
+        {/* Search bar */}
         <div className="w-full p-5">
           <div className="container mx-auto">
             <div className="relative">
@@ -36,36 +90,74 @@ const Layanan = () => {
             </div>
           </div>
         </div>
-        {/* end of search */}
-        <div className="flex flex-wrap gap-4">
-          {/* Card 1 */}
-          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">App Jalasutra</p>
-            <p className="text-xs font-thin">
-              Layanan surat menyurat desa di lingkup kecamatan Wates
-            </p>
-          </div>
+        {/*End Of Search Bar*/}
 
-          {/* Card 2 */}
-          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">SKM</p>
-            <p className="text-xs font-thin">
-              Survey Kepuasan Masyarakat milik kecamatan Wates
-            </p>
-          </div>
+        {/* Filter buttons */}
+        <div className="flex space-x-4 ml-5 mb-10">
+          <button
+            className={`px-4 py-2 text-sm font-semibold rounded-md ${
+              filter === "Semua"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
+            }`}
+            onClick={() => setFilter("Semua")}
+          >
+            Semua
+          </button>
+          <button
+            className={`px-4 py-2 text-sm font-semibold rounded-md ${
+              filter === "Internal Desa"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
+            }`}
+            onClick={() => setFilter("Internal Desa")}
+          >
+            Internal Desa
+          </button>
+          <button
+            className={`px-4 py-2 text-sm font-semibold rounded-md ${
+              filter === "Kecamatan"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
+            }`}
+            onClick={() => setFilter("Kecamatan")}
+          >
+            Kecamatan
+          </button>
+          <button
+            className={`px-4 py-2 text-sm font-semibold rounded-md ${
+              filter === "Pemkab Blitar"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
+            }`}
+            onClick={() => setFilter("Pemkab Blitar")}
+          >
+            Pemkab Blitar
+          </button>
+          <button
+            className={`px-4 py-2 text-sm font-semibold rounded-md ${
+              filter === "Provinsi Jatim"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
+            }`}
+            onClick={() => setFilter("Provinsi Jatim")}
+          >
+            Provinsi Jatim
+          </button>
+        </div>
 
-          {/* Card 3 */}
-          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">Cetak KTP</p>
-            <p className="text-xs font-thin">Cetak E-KTP dari rumah</p>
-          </div>
-
-          {/* Card 4 */}
-          <div className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md">
-            <p className="mb-2">I-Mobil</p>
-            <p className="text-xs font-thin">
-              Aplikasi perizinan milik kabupaten Blitar
-            </p>
+        {/* Cards */}
+        <div className="max-w-screen-xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {filteredData.map((item, index) => (
+              <div
+                key={index}
+                className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md"
+              >
+                <p className="mb-2">{item.title}</p>
+                <p className="text-xs font-thin">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
