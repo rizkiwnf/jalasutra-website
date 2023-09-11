@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import TopBar from "../components/navbar/topbar";
+import Modal from "react-modal";
 
 const Layanan = () => {
-  const [filter, setFilter] = useState("Semua");
+  const [filters, setFilters] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const sampleData = [
     // Define your sample data here
@@ -49,23 +51,37 @@ const Layanan = () => {
     },
   ];
 
-  const filteredData =
-    filter === "Semua"
-      ? sampleData
-      : sampleData.filter((item) => item.category === filter);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const categories = ["Internal Desa", "Kecamatan", "Pemkab Blitar", "Provinsi Jatim"];
+
+  const handleFilterChange = (event) => {
+    const value = event.target.value;
+    if (value === "Semua") {
+      setFilters(value);
+    } else {
+      if (filters.includes(value)) {
+        setFilters(filters.filter((filter) => filter !== value));
+      } else {
+        setFilters([...filters, value]);
+      }
+    }
+  };
+
+  const isAllChecked = filters === "Semua";
+
+  const isFilterSelected = filters.length > 0;
 
   return (
     <div className="layanan">
       <TopBar />
       <div className="container w-full mx-auto my-9">
-        {/* Add your search bar here */}
-
-        {/* Search bar */}
         <div className="w-full p-5">
-          <div className="container mx-auto">
-            <div className="relative">
+          <div className="container mx-auto flex justify-between items-center">
+            <div className="relative w-4/5">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                {/* Magnifying glass icon */}
                 <svg
                   className="h-5 w-5 text-gray-500"
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,76 +104,70 @@ const Layanan = () => {
                 name="search"
               />
             </div>
+            <button
+              className="px-4 py-2 text-sm font-semibold rounded-md bg-blue-500 text-white ml-5"
+              onClick={toggleModal}
+            >
+              Filter
+            </button>
           </div>
         </div>
-        {/*End Of Search Bar*/}
 
-        {/* Filter buttons */}
-        <div className="flex space-x-4 ml-5 mb-10">
-          <button
-            className={`px-4 py-2 text-sm font-semibold rounded-md ${
-              filter === "Semua"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
-            }`}
-            onClick={() => setFilter("Semua")}
-          >
-            Semua
-          </button>
-          <button
-            className={`px-4 py-2 text-sm font-semibold rounded-md ${
-              filter === "Internal Desa"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
-            }`}
-            onClick={() => setFilter("Internal Desa")}
-          >
-            Internal Desa
-          </button>
-          <button
-            className={`px-4 py-2 text-sm font-semibold rounded-md ${
-              filter === "Kecamatan"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
-            }`}
-            onClick={() => setFilter("Kecamatan")}
-          >
-            Kecamatan
-          </button>
-          <button
-            className={`px-4 py-2 text-sm font-semibold rounded-md ${
-              filter === "Pemkab Blitar"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
-            }`}
-            onClick={() => setFilter("Pemkab Blitar")}
-          >
-            Pemkab Blitar
-          </button>
-          <button
-            className={`px-4 py-2 text-sm font-semibold rounded-md ${
-              filter === "Provinsi Jatim"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-blue-500 hover:text-white"
-            }`}
-            onClick={() => setFilter("Provinsi Jatim")}
-          >
-            Provinsi Jatim
-          </button>
-        </div>
+        <Modal
+          isOpen={showModal}
+          onRequestClose={toggleModal}
+          contentLabel="Filter Modal"
+          className="modal-content"
+          ariaHideApp={false}
+          overlayClassName="modal-overlay"
+        >
+          <div>
+            <h2>Kategori</h2>
+            <label className="block cursor-pointer">
+              <input
+                type="checkbox"
+                value="Semua"
+                checked={isAllChecked}
+                onChange={handleFilterChange}
+              />
+              Semua
+            </label>
+            {categories.map((category, index) => (
+              <label key={index} className="block cursor-pointer">
+                <input
+                  type="checkbox"
+                  value={category}
+                  checked={filters.includes(category)}
+                  onChange={handleFilterChange}
+                />
+                {category}
+              </label>
+            ))}
+            <button
+              onClick={toggleModal}
+              className="px-4 py-2 mt-4 text-sm font-semibold rounded-md bg-blue-500 text-white"
+            >
+              Tutup
+            </button>
+          </div>
+        </Modal>
 
-        {/* Cards */}
         <div className="max-w-screen-xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredData.map((item, index) => (
-              <div
-                key={index}
-                className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md"
-              >
-                <p className="mb-2">{item.title}</p>
-                <p className="text-xs font-thin">{item.description}</p>
-              </div>
-            ))}
+            {sampleData
+              .filter(
+                (item) =>
+                  filters.includes("Semua") || filters.includes(item.category)
+              )
+              .map((item, index) => (
+                <div
+                  key={index}
+                  className="max-w-md text-center text-sm font-semibold p-4 border rounded-lg shadow-md"
+                >
+                  <p className="mb-2">{item.title}</p>
+                  <p className="text-xs font-thin">{item.description}</p>
+                </div>
+              ))}
           </div>
         </div>
       </div>
