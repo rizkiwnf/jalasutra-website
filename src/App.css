@@ -1,5 +1,12 @@
+.background {
+  background: linear-gradient(#1F4DFC73, #1F4DFC73), url('./assets/images/background-img.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 30px ;
+}
 
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -36,4 +43,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -26,7 +26,7 @@ const Navbar = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className="hidden md:block login py-2 w-32 font-bold text-white bg-dark-blue rounded-full">
+                    <div className="hidden md:block login py-2 w-32 font-bold text-white bg-dark-blue rounded-full text-center">
                         <a href="">Masuk</a>
                     </div>
                     <div onClick={() => setOpen(!open)} className="icon-menu md:hidden px-3">

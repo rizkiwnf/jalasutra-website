@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 
 body {
@@ -12,25 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #FFF;
 }
-
-.menu-topbar li{
-  position: relative;
+.background{
+  background: linear-gradient(#1F4DFC73), url('./assets/images/background-img.png');
 }
-.menu-topbar li a{
-  font-weight: 600;
-  transition: 0.5s ease-in-out;
-}
-.menu-topbar li a:hover{
-  color: cadetblue;
-}
-.menu-topbar li a:hover::after{
-  content: "";
-  width: 50%;
-  height: 3px;
-  background: black;
-  position: absolute;
-  bottom: -4px;
-  left: 0px;
-  border-radius: 50px;
-}
-
