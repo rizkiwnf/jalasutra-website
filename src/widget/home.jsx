@@ -1,3 +1,4 @@
+import ServiceFirst from "../components/service_first";
 const Home = () => {
     return (
         <div className="home my-[100px]">
@@ -30,8 +31,8 @@ const Home = () => {
                                 </div>
                             </form>
                         </div>
-                        <div className="bg-white w-[895px] flex mx-auto rounded-full p-6 shadow-lg">
-                            ddd
+                        <div className="relative w-full">
+                            <ServiceFirst />
                         </div>
                     </div>
                 </div>
