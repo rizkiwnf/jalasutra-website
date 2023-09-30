@@ -6,7 +6,7 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Navigation} from 'swiper/modules';
 
 const ServiceFirst = () => {
     let listService = [
@@ -36,7 +36,6 @@ const ServiceFirst = () => {
             <Swiper
                 slidesPerView={4}
                 spaceBetween={30}
-                loop={false}
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -44,8 +43,8 @@ const ServiceFirst = () => {
                 pagination={{
                     clickable: true,
                 }}
-                scrollbar={true}
-                modules={[Pagination]}
+                // scrollbar={true}
+                modules={[Pagination, Navigation]}
                 className="mySwiper bg-white w-[895px] h-[220px] rounded-xl shadow-lg"
             >
                 <div className="swiperr-wrapper">
@@ -60,21 +59,21 @@ const ServiceFirst = () => {
 
                     ))}
                 </div>
-                <div class="button-prev top-20 left-0 absolute">
-                    <div class="swiper-button-prev bg-dark-blue p-2 rounded-full">
+                <div class="button-prev top-20 left-0 absolute z-50">
+                    <button class="swiper-button-prev bg-dark-blue p-2 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                         </svg>
 
-                    </div>
+                    </button>
                 </div>
-                <div class="button-next absolute top-20 right-0">
-                    <div class="swiper-button-next bg-dark-blue p-2 rounded-full">
+                <div class="button-next absolute top-20 right-0 z-50">
+                    <button class="swiper-button-next bg-dark-blue p-2 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                         </svg>
 
-                    </div>
+                    </button>
                 </div>
             </Swiper>
         </div >

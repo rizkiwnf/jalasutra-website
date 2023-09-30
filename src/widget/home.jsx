@@ -1,7 +1,7 @@
-import ServiceFirst from "../components/service_first";
+import ServiceFirst from "./service_first";
 const Home = () => {
     return (
-        <div className="home my-[100px]">
+        <div className="home my-[100px] h-[700px]">
             <div className="container mx-auto my-auto">
                 <div className="relative background h-[590px] ">
                     <div className="py-12 flex flex-col gap-20">
@@ -34,6 +34,7 @@ const Home = () => {
                         <div className="relative w-full">
                             <ServiceFirst />
                         </div>
+                        
                     </div>
                 </div>
             </div>
