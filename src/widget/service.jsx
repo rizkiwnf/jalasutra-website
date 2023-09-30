@@ -32,9 +32,9 @@ const Service = () => {
         },
     ]
     return (
-        <div className="service my-24">
-            <div className="container mx-auto px-10">
-                <div className="serv-title flex items-center justify-between">
+        <div className="service my-16">
+            <div className="container mx-auto ">
+                <div className="serv-title flex items-center justify-between px-10">
                     <p className="text-4xl font-bold">
                         Layanan
                     </p>
@@ -49,20 +49,20 @@ const Service = () => {
                 </div>
                 <Swiper
                     slidesPerView={3}
-                    spaceBetween={30}
+                    spaceBetween={10}
                     navigation={{
                         nextEl: '.swiper-button-next',
                         prevEl: '.swiper-button-prev',
                     }}
-                    // pagination={{
-                    //     clickable: true,
-                    // }}
+                    pagination={{
+                        clickable: true,
+                    }}
                     // scrollbar={true}
                     modules={[Pagination, Navigation]}
                     className="mySwiper h-96">
-                    <div className="serv-card ">
+                    <div className="serv-card">
                         {List.map((slider) => (
-                            <SwiperSlide className="my-10 mx-1">
+                            <SwiperSlide className="my-10">
                                 <div className="card-serv h-64 rounded-xl p-4">
                                     <div className="card-field flex flex-col gap-3">
                                         <div className="image">
@@ -71,7 +71,7 @@ const Service = () => {
                                         <p className="text-2xl font-bold">{slider.title}</p>
                                         <p className="text-xs text-black opacity-70">{slider.description}</p>
                                     </div>
-                                    <button className="flex flex-row gap-2 items-center float-right bg-dark-blue py-3 px-4 text-white font-semibold rounded-full">
+                                    <button className="mt-5 flex flex-row gap-2 items-center float-right bg-dark-blue py-3 px-4 text-white font-semibold rounded-full">
                                         <p className="text-xs">Selengkapnya</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />

@@ -3,6 +3,8 @@ import Footer from "../widget/footer";
 import Navbar from "../widget/navbar";
 import Home from "../widget/home";
 import Service from "../widget/service";
+import News from "../widget/news";
+
 const MainPage = () => {
     return (
         <div className="mainpage">
@@ -12,6 +14,7 @@ const MainPage = () => {
             <div className="mt-[80px]">
                 <Home />
                 <Service/>
+                <News />
                 <Footer />
             </div>
         </div>
