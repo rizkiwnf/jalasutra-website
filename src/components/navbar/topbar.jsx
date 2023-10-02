@@ -20,7 +20,9 @@ const TopBar = () => {
               <li>
                 <Link to="/Layanan">Layanan</Link>
               </li>
-              <li>Berita</li>
+              <li>
+                <Link to="/Berita">Berita</Link>
+              </li>
               <li>Tentang</li>
             </ul>
           </div>
