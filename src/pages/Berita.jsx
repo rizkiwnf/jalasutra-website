@@ -1,5 +1,6 @@
 import React from 'react';
-import TopBar from '../components/navbar/topbar'
+import TopBar from '../components/navbar/topbar';
+import Footer from '../components/Footer';
 import Figure from '../components/Figure';
 import Carousel from '../components/Carousel';
 import NewsList from '../components/NewsList';
@@ -48,6 +49,7 @@ const News = () => {
                     <NewsList images={slides} />
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
