@@ -12,7 +12,7 @@ const Navbar = () => {
         { name: "Kontak Kami", link: "/Kontak Kami" },
     ]
 
-    let [open, setOpen] = useState(false);
+    let [open, setOpen] = useState(true);
 
     return (
         <div className="navbar">

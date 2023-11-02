@@ -6,7 +6,7 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Navigation} from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 
 const ServiceFirst = () => {
     let listService = [
@@ -32,10 +32,19 @@ const ServiceFirst = () => {
         },
     ]
     return (
-        <div className="service-first">
+        <div className="service-first mx-6">
             <Swiper
-                slidesPerView={4}
-                spaceBetween={30}
+                breakpoints={{
+                    1080:{
+                        slidesPerView: 4,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    340:{
+                        slidesPerView: 2,
+                    }
+                }}
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -45,21 +54,19 @@ const ServiceFirst = () => {
                 }}
                 // scrollbar={true}
                 modules={[Pagination, Navigation]}
-                className="mySwiper bg-white w-[895px] h-[220px] rounded-xl shadow-lg"
+                className="mySwiper bg-white lg:w-[895px] h-40 md:h-56 rounded-xl shadow-lg"
             >
-                <div className="swiperr-wrapper">
+                <div className="swiperr-wrapper ">
                     {listService.map((slider) => (
                         <SwiperSlide>
-                            <div className="field">
-                                <img className="block ml-auto mr-auto mt-10" src={slider.Image} alt="" />
-                                <p className="text-center">{slider.Name}</p>
+                            <div className="field flex flex-col gap-4">
+                                <img className="block ml-auto mr-auto mt-5 md:mt-10 w-16 md:w-auto" src={slider.Image} alt="" />
+                                <p className="text-center text-sm md:text-base">{slider.Name}</p>
                             </div>
                         </SwiperSlide>
-
-
                     ))}
                 </div>
-                <div class="button-prev top-20 left-0 absolute z-50">
+                <div class="button-prev top-16 left-0 absolute z-50 mx-1 bg-white p-1 rounded-full">
                     <button class="swiper-button-prev bg-dark-blue p-2 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -67,7 +74,7 @@ const ServiceFirst = () => {
 
                     </button>
                 </div>
-                <div class="button-next absolute top-20 right-0 z-50">
+                <div class="button-next absolute top-16 right-0 z-50 mx-1 bg-white p-1 rounded-full">
                     <button class="swiper-button-next bg-dark-blue p-2 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

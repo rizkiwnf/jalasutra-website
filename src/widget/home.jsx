@@ -1,11 +1,11 @@
 import ServiceFirst from "./service_first";
 const Home = () => {
     return (
-        <div className="home my-[100px] h-[700px]">
+        <div className="home my-[100px] lg:h-[700px]">
             <div className="container mx-auto my-auto">
-                <div className="relative background h-[590px] ">
-                    <div className="py-12 flex flex-col gap-20">
-                        <p className="text-[78px] text-center font-extrabold text-white tracking-wide">Mall Pelayanan Publik </p>
+                <div className="relative background h-[400px] md:h-[500px] lg:h-[590px] ">
+                    <div className="py-12 flex flex-col gap-10 md:gap-16 lg:gap-20">
+                        <p className="text-2xl md:text-5xl lg:text-[78px] text-center font-extrabold text-white tracking-wide">Mall Pelayanan Publik </p>
                         {/* button slide kanan kiri blm sempurna */}
                         <div className="flex flex-row justify-center items-center gap-7">
                             <div className="border-white border-2 p-1 rounded-full">
@@ -22,8 +22,8 @@ const Home = () => {
 
                             </div>
                         </div>
-                        <div className="flex justify-center">
-                            <form className="lg:w-[623px]">
+                        <div className="flex justify-center mx-5">
+                            <form className="w-full md:w-[623px]">
                                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
                                 <div class="relative">
                                     <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm font-semibold tracking-wider text-gray-900 border border-dark-blue rounded-full bg-gray-50 focus:ring-dark-blue focus:border-dark-blue " placeholder="Pencarian" />

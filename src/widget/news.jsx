@@ -3,6 +3,7 @@ import berita1 from '../assets/images/news/berita1.png';
 import berita2 from '../assets/images/news/berita2.png';
 import berita3 from '../assets/images/news/berita3.png';
 import berita4 from '../assets/images/news/berita4.png';
+import line from '../assets/images/line-news.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -41,9 +42,9 @@ const News = () => {
             <div className="container mx-auto bg-dark-blue/20 py-11 px-10 rounded-3xl">
                 <div className="news-title flex items-center justify-between">
                     <p className="text-4xl font-bold">
-                        Berita
+                        Berita Terkini
                     </p>
-                    <hr />
+                    <img src={line} alt="" className="lg:w-[750px]"/>
                     <div className="serv-see-all ">
                         <button className="bg-white flex gap-3 items-center px-4 py-2.5 rounded-full font-semibold text-sm">
                             <p>Lihat Semua</p>
@@ -56,9 +57,9 @@ const News = () => {
                 <div className="news-content mt-11 flex flex-col gap-9">
                     <div className="first-content relative">
                         <div className="flex justify-center">
-                            <img src={berita1} alt="" className="" />
+                            <img src={berita1} alt="" className="w-full" />
                         </div>
-                        <div className="bg-black bg-opacity-60 w-[1005px] absolute bottom-0 rounded-3xl left-[96px]">
+                        <div className="bg-black bg-opacity-60 w-full absolute bottom-0 rounded-3xl">
                             <div className="pt-10 pb-16">
                                 <div className="news-text text-white px-10 flex flex-col gap-5 ">
                                     <p className="text-3xl font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -83,16 +84,16 @@ const News = () => {
                                 prevEl: '.swiper-button-prev',
                             }}
                             // navigation={true}
-                            pagination={{
-                                clickable: true,
-                            }}
+                            // pagination={{
+                            //     clickable: true,
+                            // }}
                             // scrollbar={true}
                             modules={[Pagination, Navigation]}
                             className="mySwiper h-72"
                         >
                             {List.map((slider) => (
                                 <SwiperSlide className="">
-                                    <div className="card-field">
+                                    <div className="card-field shadow-lg p-2">
                                         <div className="flex justify-center">
                                             <img src={slider.logo} alt="" />
                                         </div>
