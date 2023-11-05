@@ -1,7 +1,7 @@
 import ServiceFirst from "./service_first";
 const Home = () => {
     return (
-        <div className="home my-[100px] lg:h-[700px]">
+        <div className="home my-[100px] xs:h-[500px] h-[450px] md:h-[600px] lg:h-[700px]">
             <div className="container mx-auto my-auto">
                 <div className="relative background h-[400px] md:h-[500px] lg:h-[590px] ">
                     <div className="py-12 flex flex-col gap-10 md:gap-16 lg:gap-20">
