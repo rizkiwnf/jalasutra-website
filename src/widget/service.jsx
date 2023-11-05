@@ -37,7 +37,7 @@ const Service = () => {
         },
     ]
     return (
-        <div className="service my-16 h-[400px] md:h-[450px] bg-red-900">
+        <div className="service my-16 h-[400px] md:h-[450px]">
             <div className="container mx-auto ">
                 <div className="serv-title flex items-center justify-between px-7 lg:px-0 ">
                     <p className="text-2xl md:text-4xl font-bold">
@@ -70,8 +70,13 @@ const Service = () => {
                             340: {
                                 slidesPerView: 1,
                                 spaceBetween: 20,
+                            },
+                            200: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
                             }
                         }}
+                        loop={true}
                         navigation={{
                             nextEl: '.swiper-button-next',
                             prevEl: '.swiper-button-prev',
