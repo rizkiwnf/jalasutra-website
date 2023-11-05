@@ -4,6 +4,7 @@ import Navbar from "../widget/navbar";
 import Home from "../widget/home";
 import Service from "../widget/service";
 import News from "../widget/news";
+import SubmissionFlow from "../widget/submission_flow";
 
 const MainPage = () => {
     return (
@@ -13,8 +14,9 @@ const MainPage = () => {
             </div>
             <div className="mt-[80px]">
                 <Home />
-                <Service/>
+                <Service />
                 <News />
+                <SubmissionFlow />
                 <Footer />
             </div>
         </div>
