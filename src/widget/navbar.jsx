@@ -10,7 +10,7 @@ const Navbar = () => {
         { name: "Beranda", link: "/", id: "home" },
         { name: "Layanan", link: "/layanan", id: "service" },
         { name: "Berita", link: "/berita", id: "news" },
-        { name: "Kontak Kami", link: "/kontak-kami", id: "contactus" },
+        { name: "Tentang Kami", link: "/tentang-kami", id: "aboutus" },
     ]
 
     let [open, setOpen] = useState(true);

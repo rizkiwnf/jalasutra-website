@@ -1,28 +1,24 @@
 import './App.css';
 import MainPage from './pages/main_page';
-import Navbar from './widget/navbar';
-import Home from './widget/home';
-import Service from './widget/service';
-import News from './widget/news';
-import SubmissionFlow from './widget/submission_flow';
+import ServicePage from './pages/service_page';
+import NewsPage from './pages/news_page';
+import AboutPage from './pages/about_page';
 import Footer from './widget/footer';
-import Blank from './widget/blank';
+import Login from './pages/login';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <div className="App">
-        <div className="fixed bg-white top-0 left-0 right-0 z-50">
-          <Navbar />
-        </div>
         <div class="container">
           <Routes >
+            <Route index element={<MainPage />}/>
             <Route path='/' element={<MainPage />} />
-            <Route path='/layanan' element={<Service />} />
-            <Route path='/berita' element={<News />} />
-            <Route path='/kontak-kami' element={<Footer />} />
-            <Route path='/login' element={<MainPage />} />
+            <Route path='/layanan' element={<ServicePage />} />
+            <Route path='/berita' element={<NewsPage />} />
+            <Route path='/tentang-kami' element={<AboutPage />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
         </div>
       </div>
