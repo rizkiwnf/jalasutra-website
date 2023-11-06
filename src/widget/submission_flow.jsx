@@ -23,7 +23,7 @@ const SubmissionFlow = () => {
         },
     ]
     return (
-        <div className="submission-flow mx-6">
+        <div className="submission-flow mx-6 w-screen">
             <div className="service my-16">
                 <div className="container mx-auto ">
                     <div className="serv-title">

@@ -44,7 +44,7 @@ const News = () => {
         },
     ]
     return (
-        <div className="news my-10 mx-3 md:mx-0">
+        <div className="news my-10 mx-3 md:mx-0 w-screen">
             <div className="container mx-auto bg-dark-blue/20 py-11 px-5 md:px-10 rounded-3xl">
                 <div className="news-title flex items-center justify-between">
                     <p className="text-xl md:text-2xl lg:text-4xl font-bold">

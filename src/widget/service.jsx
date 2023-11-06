@@ -37,7 +37,7 @@ const Service = () => {
         },
     ]
     return (
-        <div className="service my-16 h-[400px] md:h-[450px]">
+        <div id="service" className="service my-16 h-[400px] md:h-[450px] w-screen">
             <div className="container mx-auto ">
                 <div className="serv-title flex items-center justify-between px-7 lg:px-0 ">
                     <p className="text-2xl md:text-4xl font-bold">

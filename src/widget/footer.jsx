@@ -5,7 +5,7 @@ import { FaWhatsapp, FaEnvelope, FaSquareFacebook, FaYoutube } from "react-icons
 
 const Footer = () => {
     return (
-        <div className="footer bg-dark-blue text-white">
+        <div className="footer bg-dark-blue text-white w-screen">
             <div className="container mx-auto py-4">
                 <div className="footer-content flex flex-col lg:flex-row justify-between items-center">
                     <div className="first-col lg:w-[293px] flex flex-col gap-4">

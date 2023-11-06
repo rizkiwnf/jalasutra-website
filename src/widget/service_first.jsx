@@ -45,13 +45,14 @@ const ServiceFirst = () => {
                         slidesPerView: 2,
                     }
                 }}
+                loop={true}
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 }}
-                pagination={{
-                    clickable: true,
-                }}
+                // pagination={{
+                //     clickable: true,
+                // }}
                 // scrollbar={true}
                 modules={[Pagination, Navigation]}
                 className="mySwiper bg-white lg:w-[895px] h-40 md:h-56 rounded-xl shadow-lg"
