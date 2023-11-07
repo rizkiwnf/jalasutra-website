@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     colors: {
       'dark-blue': '#1F4DFC',
+      'admin-blue': '#2C54EC',
     },
     extend: {},
   },

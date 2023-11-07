@@ -22,7 +22,7 @@ const Navbar = () => {
                     <Link to="/"><Logo width="w-[161px]" gambarLogo={GambarLogo} /></Link>
                     <div className="hidden md:block menu-navbar">
                         <ul className="flex flex-col md:flex-row gap-3 md:gap-10 font-bold">
-                            {Links.map((links)=>(
+                            {Links.map((links) => (
                                 <li><Link to={links.link} id={links.id}>{links.name}</Link></li>
                             ))}
                         </ul>
@@ -44,7 +44,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="login py-2 w-full font-bold text-white bg-dark-blue rounded-full">
-                        <a href="">Masuk</a>
+                        <Link to="/login">Masuk</Link>
                     </div>
                 </div>
             </div>
