@@ -3,9 +3,13 @@ import MainPage from './pages/main_page';
 import ServicePage from './pages/service_page';
 import NewsPage from './pages/news_page';
 import AboutPage from './pages/about_page';
-import Footer from './widget/footer';
 import Login from './pages/login';
+import Dashboard from './pages/admin/dashboard'
+import Users from './pages/admin/users';
 import { Route, Routes } from 'react-router-dom';
+import RekapSurat from './pages/admin/rekap_surat';
+import PengajuanSurat from './pages/admin/pengajuan_surat';
+import DetailUser from './pages/admin/detail_user';
 
 function App() {
   return (
@@ -19,6 +23,11 @@ function App() {
             <Route path='/berita' element={<NewsPage />} />
             <Route path='/tentang-kami' element={<AboutPage />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/users' element={<Users />} />
+            <Route path='/rekap-surat' element={<RekapSurat />} />
+            <Route path='/pengajuan-surat' element={<PengajuanSurat />} />
+            <Route path='/profile-pengguna' element={<DetailUser />} />
           </Routes>
         </div>
       </div>
