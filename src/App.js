@@ -10,6 +10,9 @@ import { Route, Routes } from 'react-router-dom';
 import RekapSurat from './pages/admin/rekap_surat';
 import PengajuanSurat from './pages/admin/pengajuan_surat';
 import DetailUser from './pages/admin/detail_user';
+import MainPage from './pages/main_page'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
