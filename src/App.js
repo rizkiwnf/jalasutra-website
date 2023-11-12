@@ -1,4 +1,5 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/main_page';
 import ServicePage from './pages/service_page';
 import NewsPage from './pages/news_page';
@@ -6,13 +7,10 @@ import AboutPage from './pages/about_page';
 import Login from './pages/login';
 import Dashboard from './pages/admin/dashboard'
 import Users from './pages/admin/users';
-import { Route, Routes } from 'react-router-dom';
 import RekapSurat from './pages/admin/rekap_surat';
 import PengajuanSurat from './pages/admin/pengajuan_surat';
 import DetailUser from './pages/admin/detail_user';
-import MainPage from './pages/main_page'
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
