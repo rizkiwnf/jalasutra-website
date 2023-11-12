@@ -20,7 +20,7 @@ function App() {
       <div className="App">
         <div class="container">
           <Routes >
-            <Route index element={<MainPage />}/>
+            <Route index element={<MainPage />} />
             <Route path='/' element={<MainPage />} />
             <Route path='/layanan' element={<ServicePage />} />
             <Route path='/berita' element={<NewsPage />} />
@@ -41,7 +41,6 @@ function App() {
           <SubmissionFlow />
           <Footer />
         </div> */}
-
     </>
   );
 }
