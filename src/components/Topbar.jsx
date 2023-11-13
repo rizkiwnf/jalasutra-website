@@ -1,10 +1,8 @@
 import React from "react";
-import Logo from "./../../assets/images/jalasutra-logo.png";
-import { Routes, Route, useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Logo from "../assets/logo/Logo-Color.png";
 
-const TopBar = () => {
-  const navigate = useNavigate();
-
+const Topbar = () => {
   return (
     <div className="bg-white top-bar border-b border-gray-200">
       <div className="container w-full mx-auto ">
@@ -35,4 +33,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+export default Topbar;

@@ -8,7 +8,7 @@ import { BERANDA_DATA } from "../../lib/consts/data";
 import { getStatus } from "../../lib/helper/get_status";
 
 const styleBackground = 'bg-white rounded-lg p-3 text-white';
-export default function Dashboard() {
+export default function Home() {
     return (
         <>
             <div className="w-screen flex flex-row bg-gray-admin">

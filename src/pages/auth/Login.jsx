@@ -1,8 +1,9 @@
+import React from 'react'
 import GambarLogo from "../assets/images/Logo Black.svg"
 import GambarLogin from "../assets/images/login-page.png"
 import { Link } from "react-router-dom";
 
-export default function Login() {
+const Login = () => {
     return (
         <>
             <div className="w-screen bg-admin-blue h-screen py-10 lg:py-12 overflow-y-hidden">
@@ -58,11 +59,11 @@ export default function Login() {
                                             </div>
                                         </div>
 
-                                            <button type="submit" className="text-center w-full bg-admin-blue py-2 rounded-xl text-white ">
-                                        <Link to="/dashboard">
+                                        <button type="submit" className="text-center w-full bg-admin-blue py-2 rounded-xl text-white ">
+                                            <Link to="/dashboard">
                                                 Masuk
-                                        </Link>
-                                            </button>
+                                            </Link>
+                                        </button>
                                         <p className="text-center">Belum punya akun? <span className="text-dark-blue"><Link to="/">Buat disini!</Link></span></p>
                                     </form>
                                 </div>
@@ -88,3 +89,5 @@ export default function Login() {
         </>
     )
 }
+
+export default Login

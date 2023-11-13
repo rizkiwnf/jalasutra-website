@@ -1,6 +1,4 @@
 import React from 'react';
-import TopBar from '../components/navbar/topbar';
-import Footer from '../components/Footer';
 import Figure from '../components/Figure';
 import Carousel from '../components/Carousel';
 import NewsList from '../components/NewsList';
@@ -23,7 +21,6 @@ const News = () => {
     ]
     return (
         <>
-            <TopBar />
             <div className='w-6/12 mx-auto my-5 p-5 rounded-xl bg-white'>
                 <ul className="flex flex-wrap justify-center items-center mb-0 text-xs font-bold text-center text-gray-500 dark:text-gray-400">
                     <li className="mr-2">
@@ -49,7 +46,6 @@ const News = () => {
                     <NewsList images={slides} />
                 </div>
             </div>
-            <Footer />
         </>
     )
 }
