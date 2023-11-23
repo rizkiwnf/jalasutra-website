@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout/Layout';
 import Dashboard from './pages/Dashboard';
 import Services from './pages/Services';
+import 'flowbite';
 import './App.css';
 
 function App() {

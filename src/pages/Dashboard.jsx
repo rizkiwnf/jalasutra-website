@@ -9,6 +9,7 @@ import ServiceLogo3 from "../assets/images/service-logo-3.png";
 import NewsPic1 from "../assets/images/news-pic-1.png";
 import NewsPic2 from "../assets/images/news-pic-2.png";
 import NewsPic3 from "../assets/images/news-pic-3.png";
+import FeaturedServiceFlow from "../components/FeaturedServiceFlow";
 
 const Dashboard = () => {
     let services = [
@@ -81,7 +82,8 @@ const Dashboard = () => {
             <HeroSection />
             <FeaturedServices services={services} />
             <FeaturedNews news={news} />
-            <SubmissionFlow />
+            <FeaturedServiceFlow />
+            {/* <SubmissionFlow /> */}
         </main>
     )
 }

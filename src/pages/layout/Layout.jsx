@@ -15,10 +15,8 @@ const Layout = () => {
             <div className="fixed bg-white top-0 left-0 right-0 z-50">
                 <Navbar links={Links} />
             </div>
-            <div className="w-screen mt-20">
-                <div className="container mx-auto">
-                    <Outlet />
-                </div>
+            <div className="container mx-auto mt-20 p-10">
+                <Outlet />
             </div>
             <Footer />
         </>
