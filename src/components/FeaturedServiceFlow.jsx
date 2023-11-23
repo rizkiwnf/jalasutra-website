@@ -4,7 +4,7 @@ export default function FeaturedServiceFlow() {
     return (
         <section id="submission-flow">
             <div className="flex justify-between md:items-start items-center gap-3 mt-8 p-4 md:mx-20">
-                <img src={Picture} className="w-2/3" alt="" />
+                <img src={Picture} className="w-2/3 sm:hidden" alt="" />
                 <div className="w-full md:p-5">
                     <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Alur Pengajuan Surat</h2>
                     <ul className="max-w-full space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
