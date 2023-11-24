@@ -5,6 +5,7 @@ import Image from "../assets/images/news-banner-1.jpeg"
 import Pic1 from "../assets/images/banner-1.jpg"
 import Pic2 from "../assets/images/banner-2.jpg"
 import Pic3 from "../assets/images/banner-3.jpg"
+import ServiceSlider from "../components/ServiceSlider"
 
 
 export default function News() {
