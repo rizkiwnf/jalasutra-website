@@ -4,7 +4,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const SliderServices = ({ services }) => {
+const ServiceSlider = ({ services }) => {
     return (
         <section id="services-slider">
             <div className="bg-white md:mx-24 mx-5 p-4 shadow-lg rounded-xl">
@@ -61,4 +61,4 @@ const SliderServices = ({ services }) => {
         </section>
     )
 }
-export default SliderServices;
+export default ServiceSlider;

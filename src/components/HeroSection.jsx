@@ -1,5 +1,5 @@
 import React from 'react'
-import SliderServices from './SliderServices'
+import ServiceSlider from "./ServiceSlider"
 import ServiceIcon1 from "../assets/images/service-icon-1.png"
 import ServiceIcon2 from "../assets/images/service-icon-2.png"
 import ServiceIcon3 from "../assets/images/service-icon-3.png"
@@ -85,7 +85,7 @@ const HeroSection = () => {
                         </form>
                     </div>
                     <div className="relative md:h-[100px]">
-                        <SliderServices services={services} />
+                        <ServiceSlider services={services} />
                     </div>
                 </div>
             </div>
