@@ -11,7 +11,7 @@ const Layout = () => {
         { name: "Tentang Kami", link: "/about", id: "about" },
     ];
     return (
-        <>
+        <main>
             <div className="fixed bg-white top-0 left-0 right-0 z-50">
                 <Navbar links={Links} />
             </div>
@@ -19,7 +19,7 @@ const Layout = () => {
                 <Outlet />
             </div>
             <Footer />
-        </>
+        </main>
     )
 }
 
