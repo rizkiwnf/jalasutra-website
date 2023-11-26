@@ -7,6 +7,8 @@ import Services from './pages/Services';
 import News from './pages/News';
 import About from './pages/About';
 import Home from './pages/admin/Home';
+import IndexUser from './pages/admin/user/Index';
+
 import 'flowbite';
 import './App.css';
 
@@ -22,6 +24,7 @@ function App() {
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<Home />} />
+          <Route path="user" element={<IndexUser />} />
         </Route>
       </Routes>
     </Router>

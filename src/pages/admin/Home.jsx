@@ -8,9 +8,9 @@ export default function Home() {
     const styleBackground = 'bg-white rounded-lg p-3 text-white';
     return (
         <main className="flex flex-col m-2 gap-3">
-            <header className="uppercase">
+            {/* <header className="uppercase">
                 Dashboard
-            </header>
+            </header> */}
             <div className={classNames("information-box grid grid-cols-3 text-white gap-10", styleBackground)}>
                 <div className="users flex flex-row items-center justify-around gap-4 bg-admin-blue rounded-lg p-4">
                     <HiUsers fontSize={50} />
@@ -59,17 +59,11 @@ export default function Home() {
                             </thead>
                             <tbody>
                                 {
-                                    DATA_BERANDA.map((data) => (
+                                    DATA_BERANDA.map((data, index) => (
                                         <tr className="bg-white border-b text-black" key={data.id}>
-                                            <td className="px-6 py-4">
-                                                <Link to="">{data.id}</Link>
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                <Link to="">{data.date}</Link>
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                <Link to="">{data.name}</Link>
-                                            </td>
+                                            <td className="px-6 py-4">{index + 1}</td>
+                                            <td className="px-6 py-4">{data.date}</td>
+                                            <td className="px-6 py-4">{data.name}</td>
                                             <td className="px-6 py-4">{data.necessary}</td>
                                             <td className="px-6 py-4">{getStatus(data.status)}</td>
                                         </tr>
