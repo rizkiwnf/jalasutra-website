@@ -8,9 +8,12 @@ import News from './pages/News';
 import About from './pages/About';
 import Home from './pages/admin/Home';
 import IndexUser from './pages/admin/user/Index';
+import IndexSubmissionMail from './pages/admin/mail/submission/Index';
+import IndexRecapMail from './pages/admin/mail/recap/Index';
 
-import 'flowbite';
+import 'flowbite/dist/flowbite';
 import './App.css';
+import IndexNews from './pages/admin/news/Index';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<Home />} />
           <Route path="user" element={<IndexUser />} />
+          <Route path="mail/submission" element={<IndexSubmissionMail />} />
+          <Route path="mail/recap" element={<IndexRecapMail />} />
+          <Route path="news" element={<IndexNews />} />
         </Route>
       </Routes>
     </Router>
