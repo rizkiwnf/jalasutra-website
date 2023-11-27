@@ -20,12 +20,12 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="services" element={<Services />} />
           <Route path="news" element={<News />} />
           <Route path="about" element={<About />} />
-          <Route path="login" element={<Login />} />
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<Home />} />

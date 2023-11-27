@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo/logo-black.png";
-import { useState } from "react";
+import Logo from "../../assets/logo/logo-black.png";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 
 const Navbar = ({ links }) => {
     let [open, setOpen] = useState(true);
     return (
-        <div className="navbar">
+        <div className="navbar py-2">
             <div className="container mx-auto">
                 <div className="flex flex-row justify-between items-center">
                     <Link to="/">
-                        <img src={Logo} alt="" />
+                        <img src={Logo} className="h-16" alt="" />
                     </Link>
                     <div className="hidden md:block menu-navbar">
                         <ul className="flex flex-col md:flex-row gap-3 md:gap-10 font-bold">
