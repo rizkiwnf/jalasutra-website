@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Logo from "../../assets/logo/logo-black.png"
 import LoginBanner from "../../assets/images/login-page.png"
 
