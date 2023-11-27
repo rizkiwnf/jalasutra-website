@@ -2,7 +2,6 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import FeaturedServices from "../components/FeaturedServices";
 import FeaturedNews from "../components/FeaturedNews";
-import SubmissionFlow from "../widget/submission_flow";
 import ServiceLogo1 from "../assets/images/service-logo-1.png";
 import ServiceLogo2 from "../assets/images/service-logo-2.png";
 import ServiceLogo3 from "../assets/images/service-logo-3.png";

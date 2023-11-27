@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass, HiXMark } from "react-icons/hi2"
-import { PENGGUNA_DATA } from "../../../lib/consts/data"
+import { DATA_PENGGUNA } from "../../../data/AdminData"
 import AdminHeader from "../../../components/AdminHeader"
 
 export default function IndexUser() {
@@ -49,7 +49,7 @@ export default function IndexUser() {
                         </thead>
                         <tbody>
                             {
-                                PENGGUNA_DATA.map((data, index) => (
+                                DATA_PENGGUNA.map((data, index) => (
                                     <tr className="bg-white border-b text-black" key={index}>
                                         <td className="px-6 py-4">{index + 1}</td>
                                         <td className="px-6 py-4">{data.name}</td>
