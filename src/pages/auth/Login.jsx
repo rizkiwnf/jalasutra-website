@@ -1,6 +1,6 @@
-import GambarLogo from "../assets/images/Logo Black.svg"
-import GambarLogin from "../assets/images/login-page.png"
 import { Link } from "react-router-dom";
+import Logo from "../../assets/logo/logo-black.png"
+import LoginBanner from "../../assets/images/login-page.png"
 
 export default function Login() {
     return (
@@ -13,7 +13,7 @@ export default function Login() {
                                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                                     <img
                                         className="mx-auto h-24 w-auto"
-                                        src={GambarLogo}
+                                        src={Logo}
                                         alt="Your Company"
                                     />
                                     <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -75,7 +75,7 @@ export default function Login() {
                                     <p className="text-sm">Jenis Apapun Layanan Cukup di kantor Kecamatan/Desa</p>
                                     <p className="text-sm">Memudahkan Anda dalam menggunakan pelayanan yang ada di Kabupaten Blitar</p>
                                 </div>
-                                <img src={GambarLogin} alt="" width={500} />
+                                <img src={LoginBanner} alt="" width={500} />
                             </div>
                         </div>
                     </div>

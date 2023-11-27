@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Logo from "../../assets/logo/Logo Color.png"
+import Logo from "../../assets/logo/logo-color.png"
 import { FaHome } from "react-icons/fa";
 import { TbLogout, TbLogin2 } from "react-icons/tb";
 import { IoIosMail } from "react-icons/io";

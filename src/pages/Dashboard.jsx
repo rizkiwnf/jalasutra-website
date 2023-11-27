@@ -82,7 +82,6 @@ const Dashboard = () => {
             <FeaturedServices services={services} />
             <FeaturedNews news={news} />
             <FeaturedServiceFlow />
-            {/* <SubmissionFlow /> */}
         </main>
     )
 }

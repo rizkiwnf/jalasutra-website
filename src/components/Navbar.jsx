@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GambarLogo from "../assets/images/Logo Black.svg";
-import Logo from "../components/logo";
+import Logo from "../assets/logo/logo-black.png";
 import { useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 
@@ -11,7 +10,9 @@ const Navbar = ({ links }) => {
         <div className="navbar">
             <div className="container mx-auto">
                 <div className="flex flex-row justify-between items-center">
-                    <Link to="/"><Logo width="w-[161px]" gambarLogo={GambarLogo} /></Link>
+                    <Link to="/">
+                        <img src={Logo} alt="" />
+                    </Link>
                     <div className="hidden md:block menu-navbar">
                         <ul className="flex flex-col md:flex-row gap-3 md:gap-10 font-bold">
                             {
