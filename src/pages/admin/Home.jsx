@@ -31,7 +31,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="bg-white rounded-lg mt-5 text-black w-full overflow-y-hidden">
+            <div className="mt-5 bg-white rounded-lg text-black w-full overflow-y-hidden">
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-white">
                         <thead className="text-sm text-white uppercase bg-blue-600">

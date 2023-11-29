@@ -31,7 +31,7 @@ export default function IndexUser() {
                         <thead className="text-sm text-white uppercase bg-blue-600">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
-                                    id
+                                    No
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Nama
@@ -56,11 +56,11 @@ export default function IndexUser() {
                                         <td className="px-6 py-4">{data.kelurahan}</td>
                                         <td className="px-6 py-4">{data.pekerjaan}</td>
                                         <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
-                                            <button type="button" className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <button type="button" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                 <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
                                                 Lihat
                                             </button>
-                                            <button type="button" className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            <button type="button" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                                                 <HiTrash className="w-5 h-5 text-white me-2" />
                                                 Hapus
                                             </button>

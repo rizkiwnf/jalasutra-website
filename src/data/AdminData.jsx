@@ -114,7 +114,7 @@ export const DATA_PENGAJUAN = [
         path_delete: '',
     },
     {
-        id: '1',
+        id: '3',
         nomor: '470/351/409.38.1/2023',
         nik: '3505150709800004',
         tanggal: '14/08/2023',
@@ -123,7 +123,7 @@ export const DATA_PENGAJUAN = [
         path_delete: '',
     },
     {
-        id: '1',
+        id: '4',
         nomor: '470/351/409.38.1/2023',
         nik: '3505150709800004',
         tanggal: '14/08/2023',
@@ -132,7 +132,7 @@ export const DATA_PENGAJUAN = [
         path_delete: '',
     },
     {
-        id: '1',
+        id: '5',
         nomor: '470/351/409.38.1/2023',
         nik: '3505150709800004',
         tanggal: '14/08/2023',
