@@ -5,7 +5,7 @@ import { getStatus } from '../../../../utils/getStatus'
 import AdminHeader from '../../../../components/AdminHeader'
 
 export default function IndexMail() {
-    const Title = "Pengajuan Surat"
+    const Title = "Surat Masuk"
     return (
         <main>
             <AdminHeader title={Title} />

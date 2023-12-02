@@ -9,14 +9,16 @@ import Services from './pages/Services';
 import News from './pages/News';
 import About from './pages/About';
 import Login from './pages/auth/Login';
-import IndexUser from './pages/admin/user/Index';
-import IndexSubmissionMail from './pages/admin/mail/submission/Index';
-import IndexRecapMail from './pages/admin/mail/recap/Index';
+import UserIndex from './pages/admin/user/Index';
+import UserDetail from './pages/admin/user/Detail';
+import MailSubmissionIndex from './pages/admin/mail/submission/Index';
+import MailSubmissionDetail from './pages/admin/mail/submission/Detail';
+import MailRecapIndex from './pages/admin/mail/recap/Index';
+import MailRecapDetail from './pages/admin/mail/recap/Detail';
 import IndexNews from './pages/admin/news/Index';
 
 import 'flowbite/dist/flowbite';
 import './App.css';
-import DetailMail from './pages/admin/mail/submission/Detail';
 
 function App() {
   return (
@@ -32,10 +34,12 @@ function App() {
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<Home />} />
-          <Route path="user" element={<IndexUser />} />
-          <Route path="mail/submission" element={<IndexSubmissionMail />} />
-          <Route path="mail/submission/detail" element={<DetailMail />} />
-          <Route path="mail/recap" element={<IndexRecapMail />} />
+          <Route path="user" element={<UserIndex />} />
+          <Route path="user/detail" element={<UserDetail />} />
+          <Route path="mail/submission" element={<MailSubmissionIndex />} />
+          <Route path="mail/submission/detail" element={<MailSubmissionDetail />} />
+          <Route path="mail/recap" element={<MailRecapIndex />} />
+          <Route path="mail/recap/detail" element={<MailRecapDetail />} />
           <Route path="news" element={<IndexNews />} />
         </Route>
       </Routes>
