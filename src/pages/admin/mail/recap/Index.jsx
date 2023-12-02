@@ -61,7 +61,7 @@ export default function IndexMail() {
                                     Jenis
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Status
+                                    Aksi
                                 </th>
                             </tr>
                         </thead>
