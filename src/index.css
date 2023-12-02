@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 
 body {
@@ -10,9 +10,8 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F1F1F1;
+  background-color: #FFF;
 }
-
-.menu-topbar li:hover{
-  text-decoration: underline;
+.background{
+  background: linear-gradient(#1F4DFC73), url('./assets/images/background-img.png');
 }

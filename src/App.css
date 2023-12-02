@@ -1,39 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App {
-  text-align: center;
+.background {
+  background: linear-gradient(#1F4DFC73, #1F4DFC73), url('./assets/images/hero-banner-2.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-serv {
+  box-shadow: -1px 2px 15px -8px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: -1px 2px 15px -8px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: -1px 2px 15px -8px rgba(0, 0, 0, 0.69);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrap {
+  margin-top: 100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 768px) {
+  .background {
+    border-radius: 0px;
   }
 }
