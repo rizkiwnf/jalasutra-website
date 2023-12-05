@@ -46,29 +46,27 @@ const FeaturedServices = ({ services }) => {
                         // scrollbar={true}
                         modules={[Pagination, Navigation]}
                         className="mySwiper md:h-[22rem]">
-                        <div className="serv-card">
-                            {
-                                services.map((service, index) => (
-                                    <SwiperSlide key={index} className="my-10">
-                                        <div className="card-serv lg:h-64 rounded-xl p-4">
-                                            <div className="card-field flex flex-col gap-3 justify-between">
-                                                <div className="image">
-                                                    <img src={service.logo} alt="" />
-                                                </div>
-                                                <p className="text-sm lg:text-xl font-bold ">{service.title}</p>
-                                                <p className="text-xs text-black opacity-70">{service.description1}<span className="hidden lg:block">{service.description2}</span></p>
-                                                <button className="mt-5 flex flex-row gap-2 w-36 items-center bg-dark-blue py-3 px-4 text-white font-semibold rounded-full">
-                                                    <p className="text-xs">Selengkapnya</p>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                                                    </svg>
-                                                </button>
+                        {
+                            services.map((service, index) => (
+                                <SwiperSlide key={index} className="my-10">
+                                    <div className="bg-white lg:h-64 rounded-xl p-4">
+                                        <div className="card-field flex flex-col gap-3 justify-between">
+                                            <div className="image">
+                                                <img src={service.logo} alt="" />
                                             </div>
+                                            <p className="text-sm lg:text-xl font-bold ">{service.title}</p>
+                                            <p className="text-xs text-black opacity-70">{service.description1}<span className="hidden lg:block">{service.description2}</span></p>
+                                            <button className="mt-5 flex flex-row gap-2 w-36 items-center bg-dark-blue py-3 px-4 text-white font-semibold rounded-full">
+                                                <p className="text-xs">Selengkapnya</p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                                                </svg>
+                                            </button>
                                         </div>
-                                    </SwiperSlide>
-                                ))
-                            }
-                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            ))
+                        }
                         <div className="button-prev bottom-0 right-10 md:right-14 absolute z-50">
                             <button className="swiper-button-prev bg-dark-blue px-2 py-1 md:p-2 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-4 md:w-6 h-6">

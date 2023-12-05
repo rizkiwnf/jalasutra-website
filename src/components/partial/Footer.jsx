@@ -17,12 +17,9 @@ const Footer = () => {
         <div className="footer bg-dark-blue text-white w-screen">
             <div className="container mx-auto py-4">
                 <div key={key}>
-                    <animated.div style={scrolling}>Enim exercitation eu minim officia consectetur. Ex pariatur reprehenderit sint incididunt excepteur irure dolore nisi labore.</animated.div>
+                    <animated.div style={scrolling}>Selamat Datang di Jalasutra, Jenis Layanan Apapun Cukup di Kantor Kecamatan atau Desa.</animated.div>
                 </div>
-                {/* <p className="text-center">© copyright 2023 Jalasutra</p> */}
             </div>
-
-
         </div>
     )
 }
