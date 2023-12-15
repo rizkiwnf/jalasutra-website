@@ -5,8 +5,6 @@ import Image from "../assets/images/news-banner-1.jpeg"
 import Pic1 from "../assets/images/banner-1.jpg"
 import Pic2 from "../assets/images/banner-2.jpg"
 import Pic3 from "../assets/images/banner-3.jpg"
-import ServiceSlider from "../components/ServiceSlider"
-
 
 export default function News() {
     let Desc = "Ad irure eiusmod et do. Quis labore aliquip aliqua sint laborum elit. Enim minim irure in et consectetur commodo voluptate laboris.Nostrud qui est adipisicing ad. Voluptate occaecat nulla aliqua mollit nulla id cillum ut eiusmod. Voluptate consectetur amet laboris quis veniam excepteur ut. Incididunt pariatur ut ut enim irure elit aliqua veniam laboris ut labore. Deserunt sint enim laborum labore. Ut aute enim eiusmod aliquip eiusmod magna ipsum enim anim et culpa eu anim ullamco.";

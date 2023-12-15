@@ -38,37 +38,18 @@ const HeroSection = () => {
     ];
     return (
         <section id="hero">
-            {/* <div className="my-[100px] xs:h-[500px] h-[450px] md:h-[600px] lg:h-[700px] w-screen">
-                <div className="container my-auto">
-                    <div className="relative background h-[400px] md:h-[500px] lg:h-[590px] " > */}
             <div className="background relative md:mb-36 rounded-xl">
                 <div className="py-12 flex flex-col gap-10 md:gap-16 lg:gap-20" >
                     <p className="text-2xl md:text-5xl lg:text-[78px] text-center font-extrabold text-white tracking-wide" >
                         Mall Pelayanan Publik
                     </p>
-                    { /* button slide kanan kiri blm sempurna */}
-                    <div className="flex flex-row justify-center items-center gap-7">
-                        <div className="border-white border-2 p-1 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth="1.5"
-                                stroke="white" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                            </svg>
-                        </div>
-                        <p className="font-bold text-white tracking-wider text-2xl" >
+                    <div className="flex flex-col justify-center items-center gap-3">
+                        <h1 className="font-bold text-white tracking-wider text-4xl" >
                             Jalasutra
+                        </h1>
+                        <p className="font-medium text-white tracking-wide text-xl">
+                            Jenis Layanan Apapun Cukup di Kantor Kecamatan atau Desa
                         </p>
-                        <div className="border-white border-2 p-1 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth="1.5"
-                                stroke="white" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </div>
                     </div>
                     <div className="flex justify-center mx-5">
                         <form className="w-full md:w-[623px]">
@@ -89,9 +70,6 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
-            {/* </div>
-                </div>
-            </div> */}
         </section>
     )
 }

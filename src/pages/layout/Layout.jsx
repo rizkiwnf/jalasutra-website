@@ -11,12 +11,8 @@ const Layout = () => {
         { name: "Tentang Kami", link: "/about", id: "about" },
     ];
 
-    // let content;
-    // let location = window.location.pathname;
-
     return (
         <main>
-            {/* {content} */}
             <div className="fixed bg-white top-0 left-0 right-0 z-50">
                 <Navbar links={links} />
             </div>

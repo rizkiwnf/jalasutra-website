@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background {
+    background: linear-gradient(#1F4DFC73, #1F4DFC73), url('./assets/images/hero-banner-2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+}
