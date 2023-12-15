@@ -10,7 +10,8 @@ import News from './pages/News';
 import About from './pages/About';
 import Login from './pages/auth/Login';
 import UserIndex from './pages/admin/user/Index';
-import UserDetail from './pages/admin/user/Detail';
+import UserCreate from './pages/admin/user/Create';
+import UserEdit from './pages/admin/user/Edit';
 import MailSubmissionIndex from './pages/admin/mail/submission/Index';
 import MailRecapIndex from './pages/admin/mail/recap/Index';
 import MailDetail from './pages/admin/mail/Detail';
@@ -34,7 +35,8 @@ function App() {
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<Home />} />
           <Route path="user" element={<UserIndex />} />
-          <Route path="user/detail" element={<UserDetail />} />
+          <Route path="user/create" element={<UserCreate />} />
+          <Route path="user/edit" element={<UserEdit />} />
           <Route path="mail/submission" element={<MailSubmissionIndex />} />
           <Route path="mail/recap" element={<MailRecapIndex />} />
           <Route path="mail/detail" element={<MailDetail />} />
