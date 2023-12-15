@@ -12,9 +12,8 @@ import Login from './pages/auth/Login';
 import UserIndex from './pages/admin/user/Index';
 import UserDetail from './pages/admin/user/Detail';
 import MailSubmissionIndex from './pages/admin/mail/submission/Index';
-import MailSubmissionDetail from './pages/admin/mail/submission/Detail';
 import MailRecapIndex from './pages/admin/mail/recap/Index';
-import MailRecapDetail from './pages/admin/mail/recap/Detail';
+import MailDetail from './pages/admin/mail/Detail';
 import IndexNews from './pages/admin/news/Index';
 
 import 'flowbite/dist/flowbite';
@@ -37,9 +36,8 @@ function App() {
           <Route path="user" element={<UserIndex />} />
           <Route path="user/detail" element={<UserDetail />} />
           <Route path="mail/submission" element={<MailSubmissionIndex />} />
-          <Route path="mail/submission/detail" element={<MailSubmissionDetail />} />
           <Route path="mail/recap" element={<MailRecapIndex />} />
-          <Route path="mail/recap/detail" element={<MailRecapDetail />} />
+          <Route path="mail/detail" element={<MailDetail />} />
           <Route path="news" element={<IndexNews />} />
         </Route>
       </Routes>
