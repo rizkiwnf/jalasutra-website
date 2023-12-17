@@ -30,14 +30,15 @@ export default function ServiceCard({ services }) {
                 })
             }
             <Modal show={openModal} onClose={() => setOpenModal(false)}>
-                <Modal.Header>Terms of Service</Modal.Header>
+                <Modal.Header>Info</Modal.Header>
                 <Modal.Body>
                     <div className="space-y-6">
                         <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                            With less than a month to go before the European Union enacts new consumer privacy laws for its citizens,
-                            companies around the world are updating their terms of service agreements to comply.
+                            (Deskripsi Lyananan)
+                            Exercitation culpa esse mollit dolore fugiat quis nulla id consequat aliqua sunt fugiat. Ut sint irure excepteur proident in proident labore nisi fugiat exercitation consequat magna. Eiusmod nulla nostrud tempor magna aliquip. Exercitation duis nostrud dolore anim laboris et magna sit ullamco reprehenderit. In aliqua exercitation tempor ullamco aute laborum proident reprehenderit enim ut magna irure.
                         </p>
                         <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                            (Daftar Persyaratan)
                             The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant
                             to ensure a common set of data rights in the European Union. It requires organizations to notify users as
                             soon as possible of high-risk data breaches that could personally affect them.

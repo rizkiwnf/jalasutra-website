@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Logo from "../../assets/logo/logo-black.png"
 import LoginBanner from "../../assets/images/login-page.png"
 
@@ -23,7 +24,8 @@ export default function Login() {
                                 </div>
                                 <label for="remember" className="ms-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
                             </div>
-                            <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm sm:px-3 md:px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button>
+                            {/* <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm sm:px-3 md:px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button> */}
+                            <Link to="/" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm sm:px-3 md:px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</Link>
                         </form>
                     </div>
                 </div>

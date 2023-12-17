@@ -23,9 +23,12 @@ const Navbar = ({ links }) => {
                             }
                         </ul>
                     </div>
-                    <Link to="/login" className="hidden md:block login py-1.5 w-24 font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-full text-center">
+                    <a href="/user" className="hidden md:block login py-1.5 w-24 font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-full text-center">
                         Masuk
-                    </Link>
+                    </a>
+                    {/* <Link to="/login" className="hidden md:block login py-1.5 w-24 font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-full text-center">
+                        Masuk
+                    </Link> */}
                     <div onClick={() => setOpen(!open)} className="icon-menu md:hidden px-3">
                         {open ? <FaBarsStaggered size={25} /> : <FaXmark size={25} />}
                     </div>
@@ -42,7 +45,8 @@ const Navbar = ({ links }) => {
                         </ul>
                     </div>
                     <div className="login py-2 w-full font-semibold text-white bg-dark-blue rounded-full">
-                        <Link to="/login">Masuk</Link>
+                        {/* <Link to="/login">Masuk</Link> */}
+                        <a href="/user">Masuk</a>
                     </div>
                 </div>
             </div>
