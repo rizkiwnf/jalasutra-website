@@ -6,7 +6,7 @@ import { TbLogout, TbLogin2 } from "react-icons/tb";
 import { IoIosMail } from "react-icons/io";
 import { FaMailBulk, FaRegNewspaper } from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
-import { RiMailSendFill } from "react-icons/ri";
+import { RiMailSendFill, RiCustomerService2Fill } from "react-icons/ri";
 
 const LayoutAdmin = () => {
     return (
@@ -69,6 +69,12 @@ const LayoutAdmin = () => {
                                 <FaHome className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Beranda</span>
                                 <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/admin/services" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                <RiCustomerService2Fill className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                                <span className="flex-1 ms-3 whitespace-nowrap">Layanan</span>
                             </Link>
                         </li>
                         <li>
