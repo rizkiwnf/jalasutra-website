@@ -14,13 +14,13 @@ const Footer = () => {
         }
     });
     return (
-        <div className="footer bg-dark-blue text-white w-screen">
-            <div className="container mx-auto py-4">
+        <footer className="fixed bottom-0 left-0 z-20 w-full bg-dark-blue text-white">
+            <div className="container mx-auto py-2.5">
                 <div key={key}>
                     <animated.div style={scrolling}>Selamat Datang di Jalasutra, Jenis Layanan Apapun Cukup di Kantor Kecamatan atau Desa.</animated.div>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 export default Footer;

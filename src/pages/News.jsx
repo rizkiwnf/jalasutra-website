@@ -41,29 +41,43 @@ export default function News() {
         },
     ];
     return (
-        <main className="w-3/4 mx-auto my-5 rounded-xl bg-white">
-            <ul className="flex flex-wrap justify-center items-center mb-0 text-xs font-bold text-center text-gray-500 dark:text-gray-400">
-                <li className="mx-5">
-                    <a href="/" className="inline-block px-4 py-3 text-white bg-blue-600 rounded-full active" aria-current="page">SEMUA</a>
+        <main className="w-3/4 mx-auto my-5 pt-4 rounded-xl bg-white">
+            <ul className="flex flex-wrap justify-center items-center text-xs font-bold text-center text-gray-500 dark:text-gray-400" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                <li className="mx-5" role="presentation">
+                    <button type="button" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" id="all-tab" data-tabs-target="#all" role="tab" aria-controls="all" aria-selected="false">SEMUA</button> {/* selected: text-white bg-blue-600  */}
                 </li>
-                <li className="mx-5">
-                    <a href="/" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">KESEHATAN</a>
+                <li className="mx-5" role="presentation">
+                    <button type="button" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" id="kesehatan-tab" data-tabs-target="#kesehatan" role="tab" aria-controls="kesehatan" aria-selected="false">KESEHATAN</button>
                 </li>
-                <li className="mx-5">
-                    <a href="/" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">PEMERINTAHAN</a>
+                <li className="mx-5" role="presentation">
+                    <button type="button" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" id="pemerintahan-tab" data-tabs-target="#pemerintahan" role="tab" aria-controls="pemerintahan" aria-selected="false">PEMERINTAHAN</button>
                 </li>
-                <li className="mx-5">
-                    <a href="/" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">SOSIAL</a>
+                <li className="mx-5" role="presentation">
+                    <button type="button" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" id="sosial-tab" data-tabs-target="#sosial" role="tab" aria-controls="sosial" aria-selected="false">SOSIAL</button>
                 </li>
-                <li className="mx-5">
-                    <a href="/" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">EKONOMI</a>
+                <li className="mx-5" role="presentation">
+                    <button type="button" className="inline-block px-4 py-3 rounded-full hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" id="ekonomi-tab" data-tabs-target="#ekonomi" role="tab" aria-controls="ekonomi" aria-selected="false">EKONOMI</button>
                 </li>
             </ul>
             <hr className="w-auto h-1 mx-auto bg-gray-100 border-0 rounded md:my-5 dark:bg-gray-700"></hr>
-            <div className="p-4"> {/* w-full m-auto */}
-                <NewsHero image={Image} description={Desc} />
-                <NewsSlider list={News} />
-                <NewsList list={News} />
+            <div className="p-4" id="default-tab-content"> {/* w-full m-auto */}
+                <div className="hidden" id="all" role="tabpanel" aria-labelledby="all-tab">
+                    <NewsHero image={Image} description={Desc} />
+                    <NewsSlider list={News} />
+                    <NewsList list={News} />
+                </div>
+                <div className="hidden" id="kesehatan" role="tabpanel" aria-labelledby="kesehatan-tab">
+                    <h1 className="font-bold capitalize">Kesehatan</h1>
+                </div>
+                <div className="hidden" id="pemerintahan" role="tabpanel" aria-labelledby="pemerintahan-tab">
+                    <h1 className="font-bold capitalize">Pemerintahan</h1>
+                </div>
+                <div className="hidden" id="sosial" role="tabpanel" aria-labelledby="sosial-tab">
+                    <h1 className="font-bold capitalize">Sosial</h1>
+                </div>
+                <div className="hidden" id="ekonomi" role="tabpanel" aria-labelledby="ekonomi-tab">
+                    <h1 className="font-bold capitalize">Ekonomi</h1>
+                </div>
             </div>
         </main>
     )
