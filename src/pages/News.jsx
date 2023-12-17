@@ -42,7 +42,7 @@ export default function News() {
     ];
     return (
         <main className="w-3/4 mx-auto my-5 rounded-xl bg-white">
-            <ul className="flex flex-wrap justify-center items-center py-3 mb-0 text-xs font-bold text-center text-gray-500 dark:text-gray-400">
+            <ul className="flex flex-wrap justify-center items-center mb-0 text-xs font-bold text-center text-gray-500 dark:text-gray-400">
                 <li className="mx-5">
                     <a href="/" className="inline-block px-4 py-3 text-white bg-blue-600 rounded-full active" aria-current="page">SEMUA</a>
                 </li>
