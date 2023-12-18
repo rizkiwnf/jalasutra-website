@@ -2,6 +2,7 @@ import ServiceCardUser from "../../components/ServiceCardUser";
 import Logo1 from "../../assets/images/service-logo-1.png";
 import Logo2 from "../../assets/images/service-logo-2.png";
 import Logo3 from "../../assets/images/service-logo-3.png";
+import Logo4 from "../../assets/images/service-logo-4.png";
 import Logo from '../../assets/logo/logo-black.png';
 
 export default function Home() {
@@ -22,19 +23,9 @@ export default function Home() {
             desc: "Deserunt elit pariatur aliqua proident aute esse occaecat tempor nulla laborum fugiat cillum.",
         },
         {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
+            logo: Logo4,
+            name: "PT KAI",
             desc: "Do veniam enim officia et est sunt laboris mollit laboris incididunt ipsum sit elit.",
-        },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Esse dolor labore fugiat minim anim magna dolore ullamco culpa quis.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Lorem enim enim ut ipsum ea voluptate incididunt aliquip sint sint irure.",
         },
     ];
     return (

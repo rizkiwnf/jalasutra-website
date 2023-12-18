@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Logo from "../../assets/logo/logo-color.png"
 import { FaHome } from "react-icons/fa";
-import { TbLogout, TbLogin2 } from "react-icons/tb";
+import { TbLogout } from "react-icons/tb";
 import { IoIosMail } from "react-icons/io";
 import { FaMailBulk, FaRegNewspaper } from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
@@ -115,14 +115,14 @@ const LayoutAdmin = () => {
                                 <span className="flex-1 ms-3 whitespace-nowrap">Berita</span>
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/admin/login" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <TbLogin2 className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
-                            <Link to="/admin/logout" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <Link to="/welcome" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <TbLogout className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                                 <span className="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
                             </Link>

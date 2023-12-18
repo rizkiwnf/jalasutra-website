@@ -51,12 +51,12 @@ const FeaturedServices = ({ services }) => {
                                 <SwiperSlide key={index} className="my-10">
                                     <div className="bg-white lg:h-64 rounded-xl p-4">
                                         <div className="card-field flex flex-col gap-3 justify-between">
-                                            <div className="image">
-                                                <img src={service.logo} alt="" />
-                                            </div>
+                                            <span>
+                                                <img src={service.logo} className="h-14" alt="" />
+                                            </span>
                                             <p className="text-sm lg:text-xl font-bold ">{service.title}</p>
                                             <p className="text-xs text-black opacity-70">{service.description1}<span className="hidden lg:block">{service.description2}</span></p>
-                                            <button className="mt-5 flex flex-row gap-2 w-36 items-center bg-dark-blue py-3 px-4 text-white font-semibold rounded-full">
+                                            <button className="mt-3 flex flex-row gap-2 w-36 items-center bg-dark-blue py-3 px-4 text-white font-semibold rounded-full">
                                                 <p className="text-xs">Selengkapnya</p>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />

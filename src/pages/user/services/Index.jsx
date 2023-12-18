@@ -1,41 +1,32 @@
-import ServiceCard from "../components/ServiceCard";
+import ServiceCardUser from "../components/ServiceCardUser";
 import { BsFilterLeft } from "react-icons/bs";
 import Logo1 from "../assets/images/service-logo-1.png";
 import Logo2 from "../assets/images/service-logo-2.png";
 import Logo3 from "../assets/images/service-logo-3.png";
+import Logo4 from "../assets/images/service-logo-4.png";
 
 export default function Index() {
     let services = [
-        {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
-            desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
-        },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
-        },
-        {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
-            desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
-        },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
-        },
+        // {
+        //     logo: Logo1,
+        //     name: "BPJS Ketenagakerjaan",
+        //     desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
+        // },
+        // {
+        //     logo: Logo2,
+        //     name: "Email",
+        //     desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
+        // },
+        // {
+        //     logo: Logo3,
+        //     name: "PT PLN",
+        //     desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
+        // },
+        // {
+        //     logo: Logo4,
+        //     name: "BPJS Ketenagakerjaan",
+        //     desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
+        // },
     ];
     return (
         <main className="container my-5 px-8 py-6 bg-white shadow-lg border-t-2 rounded-lg">
@@ -58,7 +49,7 @@ export default function Index() {
                 </button>
             </div>
             <div className="grid grid-cols-3 gap-4 mt-10">
-                <ServiceCard services={services} />
+                <ServiceCardUser services={services} />
             </div>
         </main>
     )

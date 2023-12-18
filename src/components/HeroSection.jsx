@@ -51,7 +51,7 @@ const HeroSection = () => {
                             Jenis Layanan Apapun Cukup di Kantor Kecamatan atau Desa
                         </p>
                     </div>
-                    <div className="flex justify-center mx-5">
+                    {/* <div className="flex justify-center mx-5">
                         <form className="w-full md:w-[623px]">
                             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">
                                 Search
@@ -64,7 +64,7 @@ const HeroSection = () => {
                                 </button>
                             </div>
                         </form>
-                    </div>
+                    </div> */}
                     <div className="relative md:h-[100px]">
                         <ServiceSlider services={services} />
                     </div>

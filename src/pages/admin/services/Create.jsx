@@ -17,14 +17,14 @@ export default function CreateServices() {
                             <label htmlFor="floating_instansi" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Instansi Penyedia</label>
                         </div>
                         <div className="mb-5">
-                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your country</label>
+                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis Layanan</label>
                             <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>-- Pilih Layanan --</option>
                                 <option>Internal Desa</option>
                                 <option>Kecamatan</option>
                                 <option>Provinsi Jatim</option>
                                 <option>Pemkab Blitar</option>
-                                <option>Lainnya</option>
+                                <option>Umum</option>
                             </select>
                         </div>
                         <div className="mb-5">

@@ -5,6 +5,7 @@ import FeaturedNews from "../components/FeaturedNews";
 import ServiceLogo1 from "../assets/images/service-logo-1.png";
 import ServiceLogo2 from "../assets/images/service-logo-2.png";
 import ServiceLogo3 from "../assets/images/service-logo-3.png";
+import ServiceLogo4 from "../assets/images/service-logo-4.png";
 import NewsPic1 from "../assets/images/news-pic-1.png";
 import NewsPic2 from "../assets/images/news-pic-2.png";
 import NewsPic3 from "../assets/images/news-pic-3.png";
@@ -28,18 +29,8 @@ const Dashboard = () => {
             description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
         },
         {
-            logo: ServiceLogo1,
-            title: 'BPJS',
-            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
-        },
-        {
-            logo: ServiceLogo2,
-            title: 'E-Mail',
-            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
-        },
-        {
-            logo: ServiceLogo3,
-            title: 'PLN',
+            logo: ServiceLogo4,
+            title: 'PT KAI',
             description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
         },
     ];

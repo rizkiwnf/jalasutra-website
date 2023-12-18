@@ -16,16 +16,11 @@ const FeaturedNews = ({ news }) => {
                 <div className="flex flex-col gap-9">
                     <div className="first-content relative">
                         <img src={NewsBanner} alt="" className="h-80 md:w-full md:h-auto rounded-lg" />
-                        {/* <div className="flex justify-center">
-                        </div> */}
                         <div className="bg-black bg-opacity-50 w-full absolute bottom-0 rounded-b-lg">
                             <div className="pt-5 pb-16 px-6 md:px-10 lg:pt-10 lg:pb-16 lg:px-10">
                                 <div className="news-text text-white flex flex-col gap-5 ">
-                                    <p className="text-lg md:text-xl lg:text-3xl font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                    </p>
-                                    <p className="hidden lg:block text-sm opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p className="hidden md:block lg:hidden text-sm opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <p className="block md:hidden text-sm opacity-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p className="text-lg md:text-xl lg:text-3xl font-semibold">Pesona Eksotis Pantai Jolosutro: Surga Tersembunyi di Ujung Pulau Jawa</p>
+                                    <p className="hidden lg:block text-sm opacity-75"> Jawa Timur - Indonesia terus membuktikan kekayaan alamnya melalui pesona eksotis Pantai Jolosutro di Pacitan, Jawa Timur. Pantai ini, yang mungkin belum begitu dikenal secara luas, menyimpan keindahan alam yang luar biasa dan menjadi destinasi impian bagi para pencinta pantai. Pantai Jolosutro memukau pengunjung dengan garis pantai yang memanjang, dikelilingi oleh perbukitan hijau yang menjadikannya tempat yang sempurna untuk melarikan diri dari hiruk pikuk kota. Pasir putih yang lembut memeluk telapak kaki setiap pengunjung, menciptakan atmosfer tenang dan damai.</p>
                                 </div>
                                 <button className="bg-white flex gap-3 items-center px-4 py-2.5 rounded-full font-semibold text-xs md:text-sm absolute bottom-3 right-4 lg:right-14">
                                     <p>Selengkapnya</p>
