@@ -1,12 +1,28 @@
-import { Fragment, useState } from "react"
+import { Fragment, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import Api from "../../../api/index.jsx"
 import { Dialog, Transition } from "@headlessui/react"
 import AdminHeader from "../../../components/AdminHeader"
+
 import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass, HiXMark, HiMiniPencil } from "react-icons/hi2"
-import { DATA_PENGGUNA } from "../../../data/AdminData"
 import Profile from "../../../assets/images/blank-profile-picture.jpg"
 
+import { DATA_PENGGUNA } from "../../../data/AdminData"
+
 export default function IndexUser() {
+    const [user, SetUsers] = useState([]);
+
+    const fetchDataUsers = async () => {
+        await Api.get('/api/users')
+            .then(response => {
+                SetUsers(response.data.data.data);
+            })
+    }
+
+    useEffect(() => {
+        fetchDataUsers();
+    }, []);
+
     let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
