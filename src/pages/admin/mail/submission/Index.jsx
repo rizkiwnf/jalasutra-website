@@ -1,6 +1,5 @@
 import { DATA_PENGAJUAN } from '../../../../data/AdminData'
 import { HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
-import { getStatus } from '../../../../utils/getStatus'
 import AdminHeader from '../../../../components/AdminHeader'
 
 export default function IndexMail() {
@@ -20,13 +19,10 @@ export default function IndexMail() {
                                     Nomor SUrat
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    NIK
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Tanggal
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Status
+                                    Pemohon
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Aksi
@@ -43,11 +39,8 @@ export default function IndexMail() {
                                         <td className="px-6 py-4">
                                             <p>{data.nomor}</p>
                                         </td>
-                                        <td className="px-6 py-4">
-                                            <p>{data.nik}</p>
-                                        </td>
                                         <td className="px-6 py-4">{data.tanggal}</td>
-                                        <td className="px-6 py-4">{getStatus(data.status)}</td>
+                                        <td className="px-6 py-4">{data.pemohon}</td>
                                         <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
                                             <a href="/admin/mail/detail" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                 <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
