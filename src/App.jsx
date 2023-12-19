@@ -24,6 +24,7 @@ import UserHome from './pages/user/Home';
 import 'flowbite/dist/flowbite';
 import './App.css';
 import LayoutUserVerified from './pages/layout/LayoutUserVerified';
+import UserDetail from './pages/admin/user/Detail';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="mail/detail" element={<AdminMailDetail />} />
           <Route path="user" element={<AdminUserIndex />} />
           <Route path="user/create" element={<AdminUserCreate />} />
+          <Route path="user/detail/:id" element={<UserDetail />} />
           <Route path="user/edit" element={<AdminUserEdit />} />
           <Route path="news" element={<AdminNewsIndex />} />
         </Route>

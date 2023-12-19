@@ -1,37 +1,22 @@
-import { Fragment, useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Api from "../../../api/index.jsx"
-import { Dialog, Transition } from "@headlessui/react"
 import AdminHeader from "../../../components/AdminHeader"
-
-import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass, HiXMark, HiMiniPencil } from "react-icons/hi2"
-import Profile from "../../../assets/images/blank-profile-picture.jpg"
-
-import { DATA_PENGGUNA } from "../../../data/AdminData"
+import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
 
 export default function IndexUser() {
-    const [user, SetUsers] = useState([]);
+    const [users, setUsers] = useState([]);
 
     const fetchDataUsers = async () => {
-        await Api.get('/api/users')
+        await Api.get('/api/user')
             .then(response => {
-                SetUsers(response.data.data.data);
+                setUsers(response.data.data.data);
             })
     }
 
     useEffect(() => {
         fetchDataUsers();
     }, []);
-
-    let [isOpen, setIsOpen] = useState(false)
-
-    function closeModal() {
-        setIsOpen(false)
-    }
-
-    function openModal() {
-        setIsOpen(true)
-    }
 
     const Title = "Daftar Pengguna"
 
@@ -53,117 +38,78 @@ export default function IndexUser() {
                                     No
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Nama
+                                    Username
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Kelurahan
+                                    Email
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Pekerjaan
+                                    Role
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Status
+                                    Aksi
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                DATA_PENGGUNA.map((data, index) => (
-                                    <tr className="bg-white border-b text-black" key={index}>
-                                        <td className="px-6 py-4">{index + 1}</td>
-                                        <td className="px-6 py-4">{data.name}</td>
-                                        <td className="px-6 py-4">{data.kelurahan}</td>
-                                        <td className="px-6 py-4">{data.pekerjaan}</td>
-                                        <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
-                                            <button type="button" onClick={openModal} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
-                                                Lihat
-                                            </button>
-                                            <button type="button" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                                                <HiTrash className="w-5 h-5 text-white me-2" />
-                                                Hapus
-                                            </button>
+                                users.length > 0 ?
+                                    users.map((user, index) => (
+                                        <tr className="bg-white border-b text-black" key={index}>
+                                            <td className="px-6 py-4 capitalize">{index + 1}</td>
+                                            <td className="px-6 py-4 capitalize">{user.username}</td>
+                                            <td className="px-6 py-4">{user.email}</td>
+                                            <td className="px-6 py-4 capitalize">{user.role}</td>
+                                            <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
+                                                <a href={`/admin/user/detail/${user.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                    <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
+                                                    Lihat
+                                                </a>
+                                                <button type="button" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                                    <HiTrash className="w-5 h-5 text-white me-2" />
+                                                    Hapus
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )) :
+                                    <tr className="bg-white border-b text-black">
+                                        <td colSpan="5" className="text-center p-4">
+                                            <div className="px-6 py-4 bg-red-400 text-red-700 mb-0 border border-red-700 rounded">
+                                                Data Belum Tersedia!
+                                            </div>
                                         </td>
                                     </tr>
-                                ))
                             }
                         </tbody>
                     </table>
                 </div>
+                {/* <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
+                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                        <li>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                        </li>
+                        <li>
+                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                        </li>
+                    </ul>
+                </nav> */}
             </div>
-            <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-20" onClose={closeModal}>
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <div className="fixed inset-0 bg-black/25" />
-                    </Transition.Child>
-
-                    <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex min-h-full items-center justify-center p-4 text-center">
-                            <Transition.Child
-                                as={Fragment}
-                                enter="ease-out duration-300"
-                                enterFrom="opacity-0 scale-95"
-                                enterTo="opacity-100 scale-100"
-                                leave="ease-in duration-200"
-                                leaveFrom="opacity-100 scale-100"
-                                leaveTo="opacity-0 scale-95"
-                            >
-                                <Dialog.Panel className="w-full max-w-xl max-h-[450px] overflow-auto mt-16 rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    <Dialog.Title
-                                        as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900 flex justify-between items-center"
-                                    >
-                                        <div className="flex flex-row gap-2">
-                                            <h1 className="font-bold">
-                                                Detail Pengguna
-                                            </h1>
-                                            <a href="/admin/user/edit">
-                                                <HiMiniPencil className="cursor-pointer p-1 hover:text-white rounded-full hover:bg-light-blue" fontSize={25} />
-                                            </a>
-                                        </div>
-                                        <HiXMark className="cursor-pointer p-1 hover:text-white rounded-full hover:bg-light-blue" fontSize={25} onClick={closeModal} />
-                                    </Dialog.Title>
-                                    <div className="mt-4 p-2 flex flex-col">
-                                        <img src={Profile} className="mx-auto rounded-full w-24 h-24" alt="Default Profile" />
-                                        <div className="mt-4">
-                                            <dl class="divide-y divide-gray-100">
-                                                <div class="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                    <dt class="text-sm font-medium leading-6 text-gray-900">Nama Lengkap</dt>
-                                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
-                                                </div>
-                                                <div class="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                    <dt class="text-sm font-medium leading-6 text-gray-900">Pekerjaan</dt>
-                                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Backend Developer</dd>
-                                                </div>
-                                                <div class="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                    <dt class="text-sm font-medium leading-6 text-gray-900">Email</dt>
-                                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
-                                                </div>
-                                                <div class="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                    <dt class="text-sm font-medium leading-6 text-gray-900">Salary expectation</dt>
-                                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">$120,000</dd>
-                                                </div>
-                                                <div class="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                    <dt class="text-sm font-medium leading-6 text-gray-900">About</dt>
-                                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Culpa adipisicing mollit laborum elit ullamco anim irure consectetur id sunt enim aliquip non Lorem. Veniam do quis in ut eiusmod. Do non id duis dolor do et et magna in officia ex laboris ut. Qui adipisicing anim dolore fugiat laboris aliquip reprehenderit. Deserunt sit laborum amet ea. Aliqua reprehenderit proident labore aliquip qui id eu duis magna est eu. Quis veniam enim nulla duis fugiat cillum eiusmod consequat et mollit cupidatat sunt aliqua adipisicing. Quis id labore enim cillum aute officia duis magna adipisicing amet.</dd>
-                                                </div>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                </Dialog.Panel>
-                            </Transition.Child>
-                        </div>
-                    </div>
-                </Dialog>
-            </Transition>
         </main>
     )
 }
