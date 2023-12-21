@@ -19,6 +19,7 @@ export default function UserDetail() {
 
     useEffect(() => {
         fetchDetailUser();
+        // eslint-disable-next-line
     }, []);
 
     if (!profile) {
@@ -38,7 +39,7 @@ export default function UserDetail() {
                         </Link>
                     </div>
                 </div>
-                <div className="mt-4 p-2 flex flex-col">
+                <div className="mt-4 px-2 flex flex-col">
                     <img src={Profile} className="mx-auto rounded-full w-24 h-24" alt="Default Profile" />
                     <div className="mt-4">
                         <dl class="divide-y divide-gray-100">
