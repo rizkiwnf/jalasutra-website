@@ -6,7 +6,6 @@ import AdminHeader from "../../../components/AdminHeader"
 export default function UserCreate() {
     const [profile, setProfile] = useState("");
     const [photo, setPhoto] = useState("");
-    const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
     const handlePhoto = (e) => {
@@ -35,7 +34,7 @@ export default function UserCreate() {
                 navigate('/admin/user');
             })
             .catch(error => {
-                setErrors(error.response.data);
+                console.log(error.response.data);
             })
     }
 
