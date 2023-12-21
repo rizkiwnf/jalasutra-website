@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { HiMiniPencil } from "react-icons/hi2"
 import Api from "../../../api";
 import Profile from "../../../assets/images/blank-profile-picture.jpg"
+import Loader from "../../../components/Loader";
 
 export default function UserDetail() {
     const [profile, setProfile] = useState("");
@@ -19,6 +20,10 @@ export default function UserDetail() {
     useEffect(() => {
         fetchDetailUser();
     }, []);
+
+    if (!profile) {
+        return <main><Loader /></main>
+    }
 
     return (
         <main>
