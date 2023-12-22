@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from "../../../api/index.jsx"
 import AdminHeader from "../../../components/AdminHeader"
+import Loader from '../../../components/Loader.jsx';
 
 export default function UserCreate() {
     const [username, setUsername] = useState("");
@@ -49,6 +50,10 @@ export default function UserCreate() {
                 // console.log(error.response.data);
                 setErrors(error.response.data);
             })
+    }
+
+    if (!storeData) {
+        <main><Loader /></main>
     }
 
     const Title = "Buat User Baru"
