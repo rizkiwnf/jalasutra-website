@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import Api from "../../../api/index.jsx"
 import AdminHeader from "../../../components/AdminHeader"
 import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
-import Loader from "../../../components/Loader.jsx"
 
 export default function IndexUser() {
     const [users, setUsers] = useState([]);
