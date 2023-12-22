@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout/Layout';
 import LayoutAdmin from './pages/layout/LayoutAdmin';
+import LayoutUserVerified from './pages/layout/LayoutUserVerified';
 import Login from './pages/auth/Login';
 import Welcome from './pages/Welcome';
 import Dashboard from './pages/Dashboard';
@@ -15,16 +16,17 @@ import AdminServicesDetail from './pages/admin/services/Detail';
 import AdminUserIndex from './pages/admin/user/Index';
 import AdminUserCreate from './pages/admin/user/Create';
 import AdminUserEdit from './pages/admin/user/Edit';
+import AdminUserDetail from './pages/admin/user/Detail';
 import AdminMailSubmissionIndex from './pages/admin/mail/submission/Index';
 import AdminMailRecapIndex from './pages/admin/mail/recap/Index';
 import AdminMailDetail from './pages/admin/mail/Detail';
 import AdminNewsIndex from './pages/admin/news/Index';
 import UserHome from './pages/user/Home';
 
+import 'flowbite-datepicker';
 import 'flowbite/dist/flowbite';
+import 'flowbite/dist/datepicker.turbo.js';
 import './App.css';
-import LayoutUserVerified from './pages/layout/LayoutUserVerified';
-import UserDetail from './pages/admin/user/Detail';
 
 function App() {
   return (
@@ -51,7 +53,7 @@ function App() {
           <Route path="mail/detail" element={<AdminMailDetail />} />
           <Route path="user" element={<AdminUserIndex />} />
           <Route path="user/create" element={<AdminUserCreate />} />
-          <Route path="user/detail/:id" element={<UserDetail />} />
+          <Route path="user/detail/:id" element={<AdminUserDetail />} />
           <Route path="user/edit" element={<AdminUserEdit />} />
           <Route path="news" element={<AdminNewsIndex />} />
         </Route>
