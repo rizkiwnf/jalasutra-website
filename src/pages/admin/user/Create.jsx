@@ -8,6 +8,7 @@ export default function UserCreate() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
     const [namaLengkap, setNamaLengkap] = useState("");
     const [nik, setNik] = useState("");
     const [tanggalLahir, setTanggalLahir] = useState("");
@@ -30,9 +31,10 @@ export default function UserCreate() {
 
         const formData = new FormData();
 
-        formData.append('uername', username);
+        formData.append('username', username);
         formData.append('email', email);
         formData.append('password', password);
+        formData.append('role', role);
         formData.append('nama_lengkap', namaLengkap);
         formData.append('nik', nik);
         formData.append('tanggal_lahir', tanggalLahir);
@@ -47,8 +49,8 @@ export default function UserCreate() {
                 navigate('/admin/user');
             })
             .catch(error => {
-                // console.log(error.response.data);
                 setErrors(error.response.data);
+                console.log(error.response.data);
             })
     }
 
@@ -94,12 +96,19 @@ export default function UserCreate() {
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+                                        {
+                                            errors.password && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.password[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 </div>
                                 <div className="mb-5">
-                                    <select id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                        <option selected>--- Pilih Status ---</option>
-                                        <option value="desa">Desa 1</option>
+                                    <select id="role" name="role" onChange={(e) => setRole(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option defaultValue="warga">--- Pilih Status ---</option>
+                                        <option value="kecamatan">Admin Kecamatan</option>
                                         <option value="desa">Operator Desa</option>
                                         <option value="warga">Warga</option>
                                     </select>
@@ -124,8 +133,8 @@ export default function UserCreate() {
                                         <label htmlFor="pekerjaan" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pekerjaan</label>
                                     </div>
                                     <div className="mb-5">
-                                        <select id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option selected>--- Pilih Desa ---</option>
+                                        <select id="role" name="desa" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>
+                                            <option defaultValue="null">--- Pilih Desa ---</option>
                                             <option value="desa">Desa 1</option>
                                             <option value="desa">Desa 2</option>
                                             <option value="desa">Desa 3</option>
@@ -141,7 +150,7 @@ export default function UserCreate() {
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Masukan Tanggal Lahir</label>
-                                        <input type="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        <input type="date" name="tanggal_lahir" onChange={(e) => setTanggalLahir(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                     </div>
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="gender">Jenis Kelamin</label>
@@ -162,9 +171,9 @@ export default function UserCreate() {
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Unggah Foto</label>
                                         <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" name="foto" id="user_avatar" type="file" onChange={handlePhoto} />
                                     </div>
-                                    <div class="flex items-center">
-                                        <input name="kawin" id="link-checkbox" type="checkbox" value="true" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                        <label for="link-checkbox" class="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
+                                    <div className="flex items-center">
+                                        <input name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        <label htmlFor="link-checkbox" className="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
                                     </div>
                                 </div>
                             </div>
