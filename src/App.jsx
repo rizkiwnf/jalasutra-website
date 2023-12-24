@@ -34,15 +34,18 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/welcome" element={<Welcome />} />
+        {/* Unauthenticate User Page Route Path */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="services" element={<Services />} />
           <Route path="news" element={<News />} />
           <Route path="about" element={<About />} />
         </Route>
+        {/* User Page Route Path */}
         <Route path="/user" element={<LayoutUserVerified />}>
           <Route index element={<UserHome />} />
         </Route>
+        {/* Admin Page Route Path */}
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminHome />} />
           <Route path="services" element={<AdminServicesIndex />} />
@@ -54,7 +57,7 @@ function App() {
           <Route path="user" element={<AdminUserIndex />} />
           <Route path="user/create" element={<AdminUserCreate />} />
           <Route path="user/detail/:id" element={<AdminUserDetail />} />
-          <Route path="user/edit" element={<AdminUserEdit />} />
+          <Route path="user/edit/:id" element={<AdminUserEdit />} />
           <Route path="news" element={<AdminNewsIndex />} />
         </Route>
       </Routes>

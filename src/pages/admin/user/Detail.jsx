@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { HiMiniPencil } from "react-icons/hi2"
 import Api from "../../../api";
 import Profile from "../../../assets/images/blank-profile-picture.jpg"
@@ -34,9 +34,9 @@ export default function UserDetail() {
                         <h1 className="font-bold uppercase">
                             Detail Data {profile.nama_lengkap}
                         </h1>
-                        <Link to={`/admin/user/edit/${profile.user.id}`}>
+                        <a href={`/admin/user/edit/${profile.user.id}`}>
                             <HiMiniPencil className="cursor-pointer p-1 hover:text-white rounded-full hover:bg-light-blue" fontSize={25} />
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div className="mt-4 px-2 flex flex-col">
