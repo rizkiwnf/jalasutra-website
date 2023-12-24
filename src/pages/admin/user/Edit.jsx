@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useParams, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from "../../../api/index.jsx";
 import AdminHeader from "../../../components/AdminHeader";
@@ -18,16 +18,35 @@ export default function UserEdit() {
     const [pekerjaan, setPekerjaan] = useState("");
     const [kawin, setKawin] = useState("");
     const [photo, setPhoto] = useState("");
+    const [profile, setProfile] = useState("");
 
     const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
 
+    const { id } = useParams();
+
+    const fetchDetailUser = async () => {
+        await Api.get(`/api/user/${id}`)
+            .then(response => {
+                setProfile(response.data.data);
+            })
+    }
+
+    useEffect(() => {
+        fetchDetailUser();
+        // eslint-disable-next-line
+    }, []);
+
+    if (!profile) {
+        return <main><Loader /></main>
+    }
+
     const handlePhoto = (e) => {
         setPhoto(e.target.files[0]);
     }
 
-    const storeData = async (e) => {
+    const updateData = async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
@@ -45,7 +64,7 @@ export default function UserEdit() {
         formData.append('kawin', kawin);
         formData.append('foto', photo);
 
-        await Api.post('/api/user', formData)
+        await Api.post(`/api/user/${id}`, formData)
             .then(() => {
                 navigate('/admin/user');
             })
@@ -55,7 +74,7 @@ export default function UserEdit() {
             })
     }
 
-    if (!storeData) {
+    if (!updateData) {
         <main><Loader /></main>
     }
 
@@ -64,7 +83,7 @@ export default function UserEdit() {
         <main>
             <AdminHeader title={Title} />
             <div className="mt-5 p-6 bg-white rounded-lg text-black w-full overflow-y-hidden">
-                <form onSubmit={storeData}>
+                <form onSubmit={updateData}>
                     <div className="flex flex-row justify-between items-center mb-4 border-b border-gray-200 dark:border-gray-700">
                         <ul className="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#tab-content" role="tablist">
                             <li className="me-2" role="presentation">
