@@ -11,15 +11,15 @@ export default function UserEdit() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("");
-    const [namaLengkap, setNamaLengkap] = useState("");
+    const [userId, setUserId] = useState("");
     const [nik, setNik] = useState("");
+    const [namaLengkap, setNamaLengkap] = useState("");
     const [tanggalLahir, setTanggalLahir] = useState("");
     const [gender, setGender] = useState("");
     const [alamat, setAlamat] = useState("");
     const [pekerjaan, setPekerjaan] = useState("");
     const [kawin, setKawin] = useState("");
     const [photo, setPhoto] = useState("");
-    const [profile, setProfile] = useState("");
 
     const [errors, setErrors] = useState([]);
 
@@ -30,7 +30,18 @@ export default function UserEdit() {
     const fetchDetailUser = async () => {
         await Api.get(`/api/user/${id}`)
             .then(response => {
-                setProfile(response.data.data);
+                setUsername(response.data.data.user.username);
+                setEmail(response.data.data.user.email);
+                setPassword(response.data.data.user.password);
+                setRole(response.data.data.user.role);
+                setUserId(response.data.data.user_id);
+                setNik(response.data.data.nik);
+                setNamaLengkap(response.data.data.nama_lengkap);
+                setTanggalLahir(response.data.data.tanggal_lahir);
+                setAlamat(response.data.data.alamat);
+                setPekerjaan(response.data.data.pekerjaan);
+                setKawin(response.data.data.kawin);
+                setPhoto(response.data.data.foto);
             })
     }
 
@@ -38,10 +49,6 @@ export default function UserEdit() {
         fetchDetailUser();
         // eslint-disable-next-line
     }, []);
-
-    if (!profile) {
-        return <main><Loader /></main>
-    }
 
     const handlePhoto = (e) => {
         setPhoto(e.target.files[0]);
@@ -57,6 +64,7 @@ export default function UserEdit() {
         formData.append('password', password);
         formData.append('role', role);
         formData.append('nama_lengkap', namaLengkap);
+        formData.append('user_id', userId);
         formData.append('nik', nik);
         formData.append('tanggal_lahir', tanggalLahir);
         formData.append('gender', gender);
@@ -64,6 +72,7 @@ export default function UserEdit() {
         formData.append('pekerjaan', pekerjaan);
         formData.append('kawin', kawin);
         formData.append('foto', photo);
+        formData.append('_method', 'PATCH');
 
         await Api.post(`/api/user/${id}`, formData)
             .then(() => {
@@ -79,7 +88,8 @@ export default function UserEdit() {
         <main><Loader /></main>
     }
 
-    const Title = "Edit Data Pengguna"
+    const Title = "Edit Data Pengguna";
+
     return (
         <main>
             <AdminHeader title={Title} />
@@ -102,8 +112,9 @@ export default function UserEdit() {
                     <div id="tab-content">
                         <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="main" role="tabpanel" aria-labelledby="main-tab">
                             <div className="px-4 text-sm text-gray-500 dark:text-gray-400">
+                                <input type="text" value={userId} hidden />
                                 <div className="relative z-0 w-full mb-5 group">
-                                    <input type="text" name="username" value={profile.user.username} id="username" onChange={(e) => setUsername(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                    <input type="text" name="username" value={username} id="username" onChange={(e) => setUsername(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                     <label htmlFor="username" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
                                     {
                                         errors.username && (
@@ -115,7 +126,7 @@ export default function UserEdit() {
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="relative z-0 w-full mb-5 group">
-                                        <input type="email" name="email" value={profile.user.email} id="email" onChange={(e) => setEmail(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <input type="email" name="email" value={email} id="email" onChange={(e) => setEmail(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
                                         {
                                             errors.email && (
@@ -126,7 +137,7 @@ export default function UserEdit() {
                                         }
                                     </div>
                                     <div className="relative z-0 w-full mb-5 group">
-                                        <input type="password" name="password" value={profile.user.password} id="password" onChange={(e) => setPassword(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <input type="password" name="password" value={password} id="password" onChange={(e) => setPassword(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
                                         {
                                             errors.password && (
@@ -138,8 +149,8 @@ export default function UserEdit() {
                                     </div>
                                 </div>
                                 <div className="mb-5">
-                                    <select id="role" name="role" value={profile.user.role} onChange={(e) => setRole(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                        <option defaultValue="warga">--- Pilih Status ---</option>
+                                    <select id="role" name="role" onChange={(e) => setRole(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option>--- Ubah Status ---</option>
                                         <option value="kecamatan">Admin Kecamatan</option>
                                         <option value="desa">Operator Desa</option>
                                         <option value="warga">Warga</option>
@@ -158,7 +169,7 @@ export default function UserEdit() {
                             <div className="px-4 text-sm text-gray-500 dark:text-gray-400">
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="relative z-0 w-full mb-5 group">
-                                        <input type="text" name="nik" id="nik" onChange={(e) => setNik(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <input type="text" name="nik" value={nik} id="nik" onChange={(e) => setNik(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="nik" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nomor Induk Kependudukan</label>
                                         {
                                             errors.nik && (
@@ -169,7 +180,7 @@ export default function UserEdit() {
                                         }
                                     </div>
                                     <div className="relative z-0 w-full mb-5 group">
-                                        <input type="text" name="nama_lengkap" id="nama_lengkap" onChange={(e) => setNamaLengkap(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <input type="text" name="nama_lengkap" value={namaLengkap} id="nama_lengkap" onChange={(e) => setNamaLengkap(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="nama_lengkap" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama Lengkap</label>
                                         {
                                             errors.nama_lengkap && (
@@ -182,7 +193,7 @@ export default function UserEdit() {
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="relative z-0 w-full mb-5 group">
-                                        <input type="text" name="pekerjaan" id="pekerjaan" onChange={(e) => setPekerjaan(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <input type="text" name="pekerjaan" value={pekerjaan} id="pekerjaan" onChange={(e) => setPekerjaan(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="pekerjaan" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pekerjaan</label>
                                         {
                                             errors.pekerjaan && (
@@ -194,7 +205,7 @@ export default function UserEdit() {
                                     </div>
                                     <div className="mb-5">
                                         <select id="role" name="desa" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>
-                                            <option defaultValue="null">--- Pilih Desa ---</option>
+                                            <option value="desa">--- Pilih Desa ---</option>
                                             <option value="desa">Desa 1</option>
                                             <option value="desa">Desa 2</option>
                                             <option value="desa">Desa 3</option>
@@ -211,7 +222,7 @@ export default function UserEdit() {
                                     </div>
                                 </div>
                                 <div className="relative z-0 w-full mb-5 group">
-                                    <textarea type="text" name="alamat" id="alamat" onChange={(e) => setAlamat(e.target.value)} rows="4" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=""></textarea>
+                                    <textarea type="text" name="alamat" value={alamat} id="alamat" onChange={(e) => setAlamat(e.target.value)} rows="4" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=""></textarea>
                                     <label htmlFor="alamat" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-gray-50 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Alamat</label>
                                     {
                                         errors.alamat && (
@@ -224,7 +235,7 @@ export default function UserEdit() {
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Masukan Tanggal Lahir</label>
-                                        <input type="date" name="tanggal_lahir" onChange={(e) => setTanggalLahir(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        <input type="date" name="tanggal_lahir" value={tanggalLahir} onChange={(e) => setTanggalLahir(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                         {
                                             errors.tanggal_lahir && (
                                                 <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -236,14 +247,30 @@ export default function UserEdit() {
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="gender">Jenis Kelamin</label>
                                         <div className="grid md:grid-cols-2 md:gap-6">
-                                            <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                                <input id="bordered-radio-1" type="radio" value="pria" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                                <label htmlFor="bordered-radio-1" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pria</label>
-                                            </div>
-                                            <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                                <input id="bordered-radio-2" type="radio" value="wanita" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                                <label htmlFor="bordered-radio-2" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wanita</label>
-                                            </div>
+                                            {
+                                                gender === 'pria' ?
+                                                    <>
+                                                        <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                                            <input id="bordered-radio-1" type="radio" checked value="pria" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                            <label htmlFor="bordered-radio-1" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pria</label>
+                                                        </div>
+                                                        <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                                            <input id="bordered-radio-2" type="radio" value="wanita" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                            <label htmlFor="bordered-radio-2" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wanita</label>
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                                            <input id="bordered-radio-1" type="radio" value="pria" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                            <label htmlFor="bordered-radio-1" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pria</label>
+                                                        </div>
+                                                        <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                                            <input id="bordered-radio-2" type="radio" checked value="wanita" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                            <label htmlFor="bordered-radio-2" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wanita</label>
+                                                        </div>
+                                                    </>
+                                            }
                                             {
                                                 errors.gender && (
                                                     <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -267,7 +294,12 @@ export default function UserEdit() {
                                         }
                                     </div>
                                     <div className="flex items-center">
-                                        <input name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        {
+                                            kawin ?
+                                                <input checked name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                :
+                                                <input name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        }
                                         <label htmlFor="link-checkbox" className="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
                                     </div>
                                 </div>
