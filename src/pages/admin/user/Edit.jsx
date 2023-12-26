@@ -46,6 +46,7 @@ export default function UserEdit() {
     }
 
     useEffect(() => {
+        // console.log(pekerjaan);
         fetchDetailUser();
         // eslint-disable-next-line
     }, []);
@@ -81,7 +82,7 @@ export default function UserEdit() {
             .catch(error => {
                 setErrors(error.response.data);
                 console.log(error.response.data);
-            })
+            });
     }
 
     if (!updateData) {
@@ -136,8 +137,8 @@ export default function UserEdit() {
                                             )
                                         }
                                     </div>
-                                    <div className="relative z-0 w-full mb-5 group">
-                                        <input type="password" name="password" value={password} id="password" onChange={(e) => setPassword(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                    <div className="relative z-0 w-full mb-5 group"> {/* value={password}  */}
+                                        <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
                                         {
                                             errors.password && (
@@ -149,7 +150,7 @@ export default function UserEdit() {
                                     </div>
                                 </div>
                                 <div className="mb-5">
-                                    <select id="role" name="role" onChange={(e) => setRole(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <select id="role" name="role" value={role} onChange={(e) => setRole(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         <option>--- Ubah Status ---</option>
                                         <option value="kecamatan">Admin Kecamatan</option>
                                         <option value="desa">Operator Desa</option>
@@ -294,12 +295,13 @@ export default function UserEdit() {
                                         }
                                     </div>
                                     <div className="flex items-center">
-                                        {
+                                        {/* {
                                             kawin ?
                                                 <input checked name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                                 :
                                                 <input name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                        }
+                                        } */}
+                                        <input name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                         <label htmlFor="link-checkbox" className="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
                                     </div>
                                 </div>
