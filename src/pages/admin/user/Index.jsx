@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Swal from "sweetalert2"
 import Api from "../../../api/index.jsx"
 import AdminHeader from "../../../components/AdminHeader"
 import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
@@ -16,6 +17,35 @@ export default function IndexUser() {
     useEffect(() => {
         fetchDataUsers();
     }, []);
+
+    function deleteConfirmation(id) {
+        Swal.fire({
+            title: "Apakah Anda yakin menghapus data ini?",
+            text: "Mohon periksa kembali!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteUser(id);
+                Swal.fire({
+                    title: "Dihapus!",
+                    text: "Data pengguna telah dihapus.",
+                    icon: "success"
+                });
+            }
+        });
+    }
+
+    const deleteUser = async (id) => {
+        await Api.delete(`/api/user/${id}`)
+            .then(() => {
+                fetchDataUsers();
+            })
+    }
 
     const Title = "Daftar Pengguna"
 
@@ -64,7 +94,7 @@ export default function IndexUser() {
                                                     <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
                                                     Lihat
                                                 </a>
-                                                <button type="button" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                                <button type="button" onClick={() => deleteConfirmation(user.id)} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                                                     <HiTrash className="w-5 h-5 text-white me-2" />
                                                     Hapus
                                                 </button>

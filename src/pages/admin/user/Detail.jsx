@@ -26,6 +26,8 @@ export default function UserDetail() {
         return <main><Loader /></main>
     }
 
+    console.log(profile.kawin);
+
     return (
         <main>
             <div className="w-full mt-auto rounded-lg bg-white p-6 text-left align-middle shadow-lg">

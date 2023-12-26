@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Api from "../../../api/index.jsx";
 import AdminHeader from "../../../components/AdminHeader";
 import Loader from '../../../components/Loader.jsx';
@@ -26,6 +27,15 @@ export default function UserCreate() {
         setPhoto(e.target.files[0]);
     }
 
+    const successNotification = () => {
+        Swal.fire({
+            icon: "success",
+            title: "Data berhasil disimpan.",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+
     const storeData = async (e) => {
         e.preventDefault();
 
@@ -46,6 +56,7 @@ export default function UserCreate() {
 
         await Api.post('/api/user', formData)
             .then(() => {
+                successNotification();
                 navigate('/admin/user');
             })
             .catch(error => {
@@ -249,7 +260,7 @@ export default function UserCreate() {
                                         }
                                     </div>
                                     <div className="flex items-center">
-                                        <input name="kawin" id="link-checkbox" type="checkbox" value="true" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        <input name="kawin" id="link-checkbox" type="checkbox" value="1" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                         <label htmlFor="link-checkbox" className="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
                                     </div>
                                 </div>
