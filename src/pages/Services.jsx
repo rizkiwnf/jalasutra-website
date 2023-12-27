@@ -3,13 +3,14 @@ import { BsFilterLeft } from "react-icons/bs";
 import Logo1 from "../assets/images/service-logo-1.png";
 import Logo2 from "../assets/images/service-logo-2.png";
 import Logo3 from "../assets/images/service-logo-3.png";
+import Logo4 from "../assets/images/service-logo-4.png";
 
 export default function Service() {
     let services = [
         {
             logo: Logo1,
             name: "BPJS Ketenagakerjaan",
-            desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
+            desc: "BPJS adalah lembaga yang dibentuk untuk menyelenggarakan program jaminan sosial di Indonesia, termasuk jaminan kesehatan dan ketenagakerjaan. BPJS Kesehatan memberikan jaminan kesehatan, sementara BPJS Ketenagakerjaan menyediakan jaminan ketenagakerjaan.",
         },
         {
             logo: Logo2,
@@ -19,23 +20,23 @@ export default function Service() {
         {
             logo: Logo3,
             name: "PT PLN",
-            desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
+            desc: "PT PLN (Persero) adalah BUMN di bidang ketenagalistrikan, menyediakan layanan dari pembangkitan hingga penjualan listrik. Perusahaan ini juga menawarkan layanan online untuk perubahan daya dan pasang sambungan. Semua layanan ini dirancang untuk memberikan pengalaman yang cepat, mudah, nyaman, dan aman kepada pelanggan.",
         },
         {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
-            desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
+            logo: Logo4,
+            name: "PT Kereta Api Indonesia",
+            desc: "PT Kereta Api Indonesia (Persero) adalah BUMN yang bergerak di bidang transportasi dan logistik, menawarkan layanan angkutan penumpang dan barang. Perusahaan ini juga menyediakan layanan pemesanan tiket online dan layanan pelanggan 24 jam. Semua layanan ini dirancang untuk memberikan pengalaman yang aman, efisien, dan berbasis digital kepada pelanggan.",
         },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
-        },
+        // {
+        //     logo: Logo2,
+        //     name: "Email",
+        //     desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
+        // },
+        // {
+        //     logo: Logo3,
+        //     name: "PT PLN",
+        //     desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
+        // },
     ];
     return (
         <main className="container my-5 px-8 py-6 bg-white shadow-lg border-t-2 rounded-lg">

@@ -16,7 +16,7 @@ const Dashboard = () => {
         {
             logo: ServiceLogo1,
             title: 'BPJS',
-            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+            description1: 'BPJS adalah lembaga oleh pemerintah Indonesia yang menyelenggarakan program jaminan sosial di Indonesia, termasuk jaminan kesehatan dan ketenagakerjaan.',
         },
         {
             logo: ServiceLogo2,
@@ -26,12 +26,12 @@ const Dashboard = () => {
         {
             logo: ServiceLogo3,
             title: 'PLN',
-            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+            description1: 'PT PLN adalah BUMN di bidang tenaga listrik, menyediakan layanan dari pembangkitan hingga penjualan listrik dan juga layanan online perubahan daya dan pemasangan listrik.',
         },
         {
             logo: ServiceLogo4,
             title: 'PT KAI',
-            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+            description1: 'PT KAI adalah BUMN di bidang transportasi dan logistik, menawarkan layanan angkutan penumpang dan barang, pemesanan tiket online, dan layanan pelanggan 24 jam.',
         },
     ];
 
