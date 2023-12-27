@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, Link } from 'react-router-dom';
 import Footer from '../../components/partial/Footer';
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaClipboardCheck } from "react-icons/fa";
 import { RiCustomerService2Fill, RiMailFill } from "react-icons/ri";
 import { IoLogOut } from "react-icons/io5";
 import Pic from '../../assets/images/blank-profile-picture.jpg';
@@ -39,6 +39,14 @@ const LayoutUserVerified = () => {
                         Profile
                         <div className="tooltip-arrow" data-popper-arrow></div>
                     </div>
+                    <Link to="/user/kuisioner" data-tooltip-target="tooltip-kuisioner" data-tooltip-placement="left" className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+                        <FaClipboardCheck className="w-6 h-6" />
+                        <span className="sr-only">Kuisioner</span>
+                    </Link>
+                    <div id="tooltip-kuisioner" role="tooltip" className="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        Kuisioner
+                        <div className="tooltip-arrow" data-popper-arrow></div>
+                    </div>
                     <Link to="/" data-tooltip-target="tooltip-logout" data-tooltip-placement="left" className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                         <IoLogOut className="w-6 h-6" />
                         <span className="sr-only">Logout</span>
@@ -49,6 +57,7 @@ const LayoutUserVerified = () => {
                     </div>
                 </div>
             </div>
+            
             <div className="mx-16 p-10">
                 <Outlet />
             </div>

@@ -22,6 +22,7 @@ import AdminMailRecapIndex from './pages/admin/mail/recap/Index';
 import AdminMailDetail from './pages/admin/mail/Detail';
 import AdminNewsIndex from './pages/admin/news/Index';
 import UserHome from './pages/user/Home';
+import UserKuisioner from './pages/user/kuisioner/index';
 
 import 'flowbite-datepicker';
 import 'flowbite/dist/flowbite';
@@ -42,6 +43,7 @@ function App() {
         </Route>
         <Route path="/user" element={<LayoutUserVerified />}>
           <Route index element={<UserHome />} />
+          <Route path="/user/kuisioner" element={<UserKuisioner />} />          
         </Route>
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<AdminHome />} />
