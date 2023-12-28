@@ -58,6 +58,7 @@ export default function EditServices() {
 
         const formData = new FormData();
 
+        console.log(gambar)
         formData.append('nama', nama);
         formData.append('jenis', jenis);
         formData.append('deskripsi', deskripsi);

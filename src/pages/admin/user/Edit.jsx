@@ -51,7 +51,7 @@ export default function UserEdit() {
         // eslint-disable-next-line
     }, []);
 
-    const handlePhoto = (e) => {
+    const handlerFoto = (e) => {
         setPhoto(e.target.files[0]);
     }
 
@@ -295,7 +295,7 @@ export default function UserEdit() {
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Unggah Foto</label>
-                                        <input name="foto" id="foto" type="file" onChange={handlePhoto} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="foto" />
+                                        <input name="foto" id="foto" type="file" onChange={handlerFoto} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="foto" />
                                         {
                                             errors.foto && (
                                                 <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
