@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { HiMiniPencil } from "react-icons/hi2"
 import Api from "../../../api";
-import Profile from "../../../assets/images/blank-profile-picture.jpg"
 import Loader from "../../../components/Loader";
 
 export default function UserDetail() {
@@ -41,8 +40,8 @@ export default function UserDetail() {
                         </a>
                     </div>
                 </div>
-                <div className="mt-4 px-2 flex flex-col">
-                    <img src={Profile} className="mx-auto rounded-full w-24 h-24" alt="Default Profile" />
+                <div className="mt-4 px-2 flex flex-col"> {console.log(profile.foto)}
+                    <img src={profile.foto} className="mx-auto rounded-full w-24 h-24" alt="Belum Ada Foto" />
                     <div className="mt-4">
                         <dl className="divide-y divide-gray-100">
                             <div className="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
