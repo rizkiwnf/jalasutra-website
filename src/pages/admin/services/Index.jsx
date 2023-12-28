@@ -24,7 +24,7 @@ export default function IndexServices() {
         <main>
             <AdminHeader title={Title} />
             <div className="flex flex-row-reverse">
-                <Link to="/admin/services/create" className="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
+                <Link to="/admin/service/create" className="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
                     <HiSquaresPlus className="w-5 h-5 me-2" />
                     Tambah Layanan
                 </Link>
@@ -44,7 +44,7 @@ export default function IndexServices() {
                                     Jenis
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Instansi
+                                    Deskripsi
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Logo
@@ -67,7 +67,7 @@ export default function IndexServices() {
                                                 <img src={service.gambar} alt={service.nama} width="100" className="rounded" />
                                             </td>
                                             <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
-                                                <a href={`/admin/services/detail/${service.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                <a href={`/admin/service/detail/${service.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                     <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
                                                     Lihat
                                                 </a>

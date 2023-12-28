@@ -34,7 +34,7 @@ export default function DetailServices() {
                         <h1 className="font-bold uppercase">
                             Detail Layanan {service.nama}
                         </h1>
-                        <a href={`/admin/user/edit/${service.id}`}>
+                        <a href={`/admin/service/edit/${service.id}`}>
                             <HiMiniPencil className="cursor-pointer p-1 hover:text-white rounded-full hover:bg-light-blue" fontSize={25} />
                         </a>
                     </div>
