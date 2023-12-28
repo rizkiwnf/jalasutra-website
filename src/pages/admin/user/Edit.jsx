@@ -87,7 +87,7 @@ export default function UserEdit() {
         await Api.post(`/api/user/${id}`, formData)
             .then(() => {
                 successNotification();
-                navigate('/admin/user');
+                navigate('/admin/users');
             })
             .catch(error => {
                 setErrors(error.response.data);

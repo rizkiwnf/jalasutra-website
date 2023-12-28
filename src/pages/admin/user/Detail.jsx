@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import { HiMiniPencil } from "react-icons/hi2"
 import Api from "../../../api";
 import Loader from "../../../components/Loader";
+import { HiMiniPencil } from "react-icons/hi2";
 
 export default function UserDetail() {
     const [profile, setProfile] = useState("");
@@ -25,8 +25,6 @@ export default function UserDetail() {
         return <main><Loader /></main>
     }
 
-    console.log(profile.kawin);
-
     return (
         <main>
             <div className="w-full mt-auto rounded-lg bg-white p-6 text-left align-middle shadow-lg">
@@ -40,7 +38,7 @@ export default function UserDetail() {
                         </a>
                     </div>
                 </div>
-                <div className="mt-4 px-2 flex flex-col"> {console.log(profile.foto)}
+                <div className="mt-4 px-2 flex flex-col">
                     <img src={profile.foto} className="mx-auto rounded-full w-24 h-24" alt="Belum Ada Foto" />
                     <div className="mt-4">
                         <dl className="divide-y divide-gray-100">

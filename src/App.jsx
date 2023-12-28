@@ -50,11 +50,11 @@ function App() {
           <Route index element={<AdminHome />} />
           <Route path="services" element={<AdminServicesIndex />} />
           <Route path="services/create" element={<AdminServicesCreate />} />
-          <Route path="services/detail" element={<AdminServicesDetail />} />
+          <Route path="services/detail/:id" element={<AdminServicesDetail />} />
           <Route path="mail/submission" element={<AdminMailSubmissionIndex />} />
           <Route path="mail/recap" element={<AdminMailRecapIndex />} />
           <Route path="mail/detail" element={<AdminMailDetail />} />
-          <Route path="user" element={<AdminUserIndex />} />
+          <Route path="users" element={<AdminUserIndex />} />
           <Route path="user/create" element={<AdminUserCreate />} />
           <Route path="user/detail/:id" element={<AdminUserDetail />} />
           <Route path="user/edit/:id" element={<AdminUserEdit />} />
