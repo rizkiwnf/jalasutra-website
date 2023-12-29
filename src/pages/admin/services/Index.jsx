@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Api from "../../../api/index.jsx"
 import AdminHeader from "../../../components/AdminHeader";
 import { HiSquaresPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2";
+import Swal from "sweetalert2";
 
 export default function IndexServices() {
     const [services, setServices] = useState([]);
@@ -17,6 +18,35 @@ export default function IndexServices() {
     useEffect(() => {
         fetchDataServices();
     }, []);
+
+    function deleteConfirmation(id) {
+        Swal.fire({
+            title: "Apakah Anda yakin menghapus layanan ini?",
+            text: "Mohon periksa kembali!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteService(id);
+                Swal.fire({
+                    title: "Dihapus!",
+                    text: "Layanan telah dihapus.",
+                    icon: "success"
+                });
+            }
+        });
+    }
+
+    const deleteService = async (id) => {
+        await Api.delete(`/api/service/${id}`)
+            .then(() => {
+                fetchDataServices();
+            })
+    }
 
     const Title = "Daftar Layanan"
 
@@ -71,7 +101,7 @@ export default function IndexServices() {
                                                     <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
                                                     Lihat
                                                 </a>
-                                                <button type="button" className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                                <button type="button" onClick={() => deleteConfirmation(service.id)} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                                                     <HiTrash className="w-5 h-5 text-white me-2" />
                                                     Hapus
                                                 </button>
