@@ -87,7 +87,7 @@ export default function Home() {
                                                 kecamatan@gmail.com
                                             </p>
                                         </div>
-                                        <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        <div className="inline-flex items-center text-base font-medium text-gray-900 dark:text-white">
                                             Admin
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@ export default function Home() {
                                                 kecamatan@gmail.com
                                             </p>
                                         </div>
-                                        <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        <div className="inline-flex items-center text-base font-medium text-gray-900 dark:text-white">
                                             Admin
                                         </div>
                                     </div>
