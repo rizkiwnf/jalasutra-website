@@ -29,12 +29,12 @@ export default function Home() {
         },
     ];
     return (
-        <main className="container my-5 px-8 py-6 bg-white shadow-lg border-t-2 rounded-lg">
+        <main className="my-5 p-12 bg-white shadow-lg border-t-2 rounded-lg">
             <div className="flex flex-row justify-between items-center">
-                <img src={Logo} className="h-14" alt="" />
-                <p className="text-2xl font-semibold">Pilih Layanan</p>
+                <img src={Logo} className="h-12 md:h-16" alt="" />
+                <p className="text-md md:text-xl lg:text-2xl font-semibold">Pilih Layanan</p>
             </div>
-            <div className="grid grid-cols-3 gap-4 mt-10">
+            <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
                 <ServiceCardUser services={services} />
             </div>
         </main>

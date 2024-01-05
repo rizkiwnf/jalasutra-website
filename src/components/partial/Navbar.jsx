@@ -45,8 +45,7 @@ const Navbar = ({ links }) => {
                         </ul>
                     </div>
                     <div className="login py-2 w-full font-semibold text-white bg-dark-blue rounded-full">
-                        {/* <Link to="/login">Masuk</Link> */}
-                        <a href="/user">Masuk</a>
+                        <a href="/login">Masuk</a>
                     </div>
                 </div>
             </div>

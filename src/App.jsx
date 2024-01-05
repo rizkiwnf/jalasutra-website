@@ -43,7 +43,7 @@ function App() {
           <Route path="about" element={<About />} />
         </Route>
         {/* User Page Route Path */}
-        <Route path="/user" element={<LayoutUserVerified />}>
+        <Route path="/user/:id" element={<LayoutUserVerified />}>
           <Route index element={<UserHome />} />
         </Route>
         {/* Admin Page Route Path */}

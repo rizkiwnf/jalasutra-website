@@ -17,15 +17,15 @@ export default function NewLogin() {
     const successNotification = () => {
         Swal.fire({
             icon: "success",
-            title: "Data berhasil disimpan.",
+            title: "Login Berhasil.",
             showConfirmButton: false,
             timer: 1500
         });
     }
 
-    const failedNotification = () => {
+    const failedNotification = async () => {
         Swal.fire({
-            icon: "failed",
+            icon: "error",
             title: "Login gagal!",
             showConfirmButton: false,
             timer: 1500
@@ -44,7 +44,7 @@ export default function NewLogin() {
             .then((response) => {
                 successNotification();
                 localStorage.setItem('token', response.data.token);
-                navigate('/user');
+                navigate(`/user/${response.data.user.id}`);
             })
             .catch((error) => {
                 failedNotification();
@@ -59,6 +59,13 @@ export default function NewLogin() {
                         <header className="flex flex-col">
                             <img src={Logo} className="w-36 md:w-48 mx-auto" alt="" />
                         </header>
+                        {
+                            validation.message && (
+                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span className="font-semibold">Perhatian!</span> {validation.message[0]}
+                                </div>
+                            )
+                        }
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                             <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="username@gamail.com" required />
