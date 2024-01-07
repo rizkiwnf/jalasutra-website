@@ -90,7 +90,7 @@ const LayoutUserVerified = () => {
                 <Outlet />
             </div>
             <Footer />
-        </main >
+        </main>
     )
 }
 

@@ -1,5 +1,6 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import Api from "../../api";
 import Logo from "../../assets/logo/logo-color.png"
 import { FaHome } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
@@ -9,6 +10,36 @@ import { ImUsers } from "react-icons/im";
 import { RiMailSendFill, RiCustomerService2Fill } from "react-icons/ri";
 
 const LayoutAdmin = () => {
+    const [users, setUsers] = useState("");
+
+    const token = localStorage.getItem('token');
+
+    const navigate = useNavigate();
+
+    const fetchDataUser = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        await Api.get('/api/user')
+            .then((response) => {
+                setUsers(response.data.data);
+            })
+    }
+
+    useEffect(() => {
+        if (!token) {
+            navigate('/login');
+        }
+        fetchDataUser();
+        // eslint-disable-next-line
+    }, []);
+
+    const logoutHandler = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        await Api.post('/api/logout')
+            .then(() => {
+                localStorage.removeItem("token");
+                navigate('/');
+            });
+    };
     return (
         <main>
             <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -122,10 +153,10 @@ const LayoutAdmin = () => {
                             </Link>
                         </li> */}
                         <li>
-                            <Link to="/welcome" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <TbLogout className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-                                <span className="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
-                            </Link>
+                            <button type="button" onClick={logoutHandler} className="flex justify-start items-center p-2 w-full text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                <TbLogout className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                                <span className="ms-3 whitespace-nowrap">Sign Out</span>
+                            </button>
                         </li>
                     </ul>
                 </div>
