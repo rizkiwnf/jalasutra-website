@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout/Layout';
 import LayoutAdmin from './pages/layout/LayoutAdmin';
 import LayoutUserVerified from './pages/layout/LayoutUserVerified';
-import Login from './pages/auth/NewLogin';
+import Login from './pages/auth/Login';
 import Welcome from './pages/Welcome';
 import Dashboard from './pages/Dashboard';
 import Services from './pages/Services';
@@ -23,6 +23,8 @@ import AdminMailRecapIndex from './pages/admin/mail/recap/Index';
 import AdminMailDetail from './pages/admin/mail/Detail';
 import AdminNewsIndex from './pages/admin/news/Index';
 import UserHome from './pages/user/Home';
+import UserService from './pages/user/services/Index';
+import UserMail from './pages/user/mail/Index';
 
 import 'flowbite-datepicker';
 import 'flowbite/dist/flowbite';
@@ -43,8 +45,10 @@ function App() {
           <Route path="about" element={<About />} />
         </Route>
         {/* User Page Route Path */}
-        <Route path="/user/:id" element={<LayoutUserVerified />}>
+        <Route path="/warga/:id" element={<LayoutUserVerified />}>
           <Route index element={<UserHome />} />
+          <Route path="layanan" element={<UserService />} />
+          <Route path="surat" element={<UserMail />} />
         </Route>
         {/* Admin Page Route Path */}
         <Route path="/admin" element={<LayoutAdmin />}>

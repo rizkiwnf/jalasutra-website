@@ -1,41 +1,29 @@
-import ServiceCardUser from "../../components/ServiceCardUser";
-import Logo1 from "../../assets/images/service-logo-1.png";
-import Logo2 from "../../assets/images/service-logo-2.png";
-import Logo3 from "../../assets/images/service-logo-3.png";
-import Logo4 from "../../assets/images/service-logo-4.png";
-import Logo from '../../assets/logo/logo-black.png';
+import Pic from "../../assets/svg/welcome.svg";
 
 export default function Home() {
-    let services = [
-        {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
-            desc: "Officia qui quis qui sint nulla excepteur in excepteur non cupidatat officia.",
-        },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Lorem pariatur sunt occaecat velit veniam enim et magna exercitation aliqua labore cillum exercitation.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Deserunt elit pariatur aliqua proident aute esse occaecat tempor nulla laborum fugiat cillum.",
-        },
-        {
-            logo: Logo4,
-            name: "PT KAI",
-            desc: "Do veniam enim officia et est sunt laboris mollit laboris incididunt ipsum sit elit.",
-        },
-    ];
     return (
-        <main className="my-5 p-12 bg-white shadow-lg border-t-2 rounded-lg">
-            <div className="flex flex-row justify-between items-center">
-                <img src={Logo} className="h-12 md:h-16" alt="" />
-                <p className="text-md md:text-xl lg:text-2xl font-semibold">Pilih Layanan</p>
-            </div>
-            <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
-                <ServiceCardUser services={services} />
+        <main className="h-screen md:h-[512px]">
+            <div className="grid grid-cols-none md:grid-cols-2 gap-2 items-center min-h-full p-6 rounded-lg">
+                <div className="flex flex-col">
+                    <h3 className="mb-4 text-md font-medium leading-none tracking-tight text-gray-700 dark:text-white">Selamat Datang !</h3>
+                    <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Jalasutra</h1>
+                    <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Jenis Apapun Layanan Cukup di Kantor Kecamatan atau Desa</p>
+                    <div className="grid gap-2 text-gray-700 hover:text-gray-900 dark:text-white sm:grid-cols-2 md:grid-cols-3">
+                        <a href="/" className="block p-3 rounded-lg border border-collapse border-blue-200 transition-colors ease-in-out delay-75 duration-300 hover:bg-blue-200 hover:border-blue-400">
+                            <div className="font-semibold mb-1">Layanan</div>
+                            <span className="text-sm text-gray-500">Cari layanan yang Anda butuhkan.</span>
+                        </a>
+                        <a href="/" className="block p-3 rounded-lg border border-collapse border-blue-200 transition-colors ease-in-out delay-75 duration-300 hover:bg-blue-200 hover:border-blue-400">
+                            <div className="font-semibold mb-1">Surat</div>
+                            <span className="text-sm text-gray-500">Lihat daftar surat yang Anda ajukan.</span>
+                        </a>
+                        <a href="/" className="block p-3 rounded-lg border border-collapse border-blue-200 transition-colors ease-in-out delay-75 duration-300 hover:bg-blue-200 hover:border-blue-400">
+                            <div className="font-semibold mb-1">Profile</div>
+                            <span className="text-sm text-gray-500">Atur data profile Anda.</span>
+                        </a>
+                    </div>
+                </div>
+                <img src={Pic} className="max-w-lg ms-auto" alt="" />
             </div>
         </main>
     )
