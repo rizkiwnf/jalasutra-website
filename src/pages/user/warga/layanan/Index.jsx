@@ -1,4 +1,4 @@
-import ServiceCardUser from "../../../../../components/ServiceCardUser";
+import ServiceCardUser from "../../../../components/ServiceCardUser";
 import { BsFilterLeft } from "react-icons/bs";
 import Logo1 from "../../../../assets/images/service-logo-1.png";
 import Logo2 from "../../../../assets/images/service-logo-2.png";
