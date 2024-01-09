@@ -1,9 +1,9 @@
-import { HiUsers, HiEnvelopeOpen, HiFaceSmile } from "react-icons/hi2"
-import { DATA_BERANDA } from "../../data/AdminData"
-import { getStatus } from "../../utils/getStatus"
-import AdminHeader from "../../components/AdminHeader"
-import Profile from "../../assets/images/blank-profile-picture.jpg"
 import { Link } from "react-router-dom"
+import { HiUsers, HiEnvelopeOpen, HiFaceSmile } from "react-icons/hi2"
+import { DATA_BERANDA } from "../../../data/AdminData"
+import { getStatus } from "../../../utils/getStatus"
+import AdminHeader from "../../../components/AdminHeader"
+import Profile from "../../../assets/images/blank-profile-picture.jpg"
 
 export default function Home() {
     const Title = "Dashboard"

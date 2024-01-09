@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Api from "../../../api";
+import Api from "../../../../api";
 import Swal from "sweetalert2";
-import AdminHeader from "../../../components/AdminHeader";
-import Loader from "../../../components/Loader";
+import AdminHeader from "../../../../components/AdminHeader";
+import Loader from "../../../../components/Loader";
 
 export default function CreateServices() {
     const [nama, setNama] = useState("");

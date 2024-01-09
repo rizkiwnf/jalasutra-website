@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import Api from "../../../api/index.jsx";
-import AdminHeader from "../../../components/AdminHeader";
-import Loader from '../../../components/Loader.jsx';
+import Api from "../../../../api/index.jsx";
+import AdminHeader from "../../../../components/AdminHeader";
+import Loader from '../../../../components/Loader.jsx';
 
 export default function UserCreate() {
     const [username, setUsername] = useState("");
