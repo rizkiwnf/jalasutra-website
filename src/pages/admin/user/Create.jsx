@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Api from "../../../api/index.jsx";
 import AdminHeader from "../../../components/AdminHeader";
 import Loader from '../../../components/Loader.jsx';
@@ -8,6 +9,7 @@ export default function UserCreate() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
     const [namaLengkap, setNamaLengkap] = useState("");
     const [nik, setNik] = useState("");
     const [tanggalLahir, setTanggalLahir] = useState("");
@@ -25,14 +27,24 @@ export default function UserCreate() {
         setPhoto(e.target.files[0]);
     }
 
+    const successNotification = () => {
+        Swal.fire({
+            icon: "success",
+            title: "Data berhasil disimpan.",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+
     const storeData = async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
 
-        formData.append('uername', username);
+        formData.append('username', username);
         formData.append('email', email);
         formData.append('password', password);
+        formData.append('role', role);
         formData.append('nama_lengkap', namaLengkap);
         formData.append('nik', nik);
         formData.append('tanggal_lahir', tanggalLahir);
@@ -44,11 +56,12 @@ export default function UserCreate() {
 
         await Api.post('/api/user', formData)
             .then(() => {
-                navigate('/admin/user');
+                successNotification();
+                navigate('/admin/users');
             })
             .catch(error => {
-                // console.log(error.response.data);
                 setErrors(error.response.data);
+                console.log(error.response.data);
             })
     }
 
@@ -85,24 +98,52 @@ export default function UserCreate() {
                                 <div className="relative z-0 w-full mb-5 group">
                                     <input type="text" name="username" id="username" onChange={(e) => setUsername(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                     <label htmlFor="username" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
+                                    {
+                                        errors.username && (
+                                            <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                <span className="font-semibold">Perhatian!</span> {errors.username[0]}
+                                            </div>
+                                        )
+                                    }
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+                                        {
+                                            errors.email && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.email[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+                                        {
+                                            errors.password && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.password[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 </div>
                                 <div className="mb-5">
-                                    <select id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                        <option selected>--- Pilih Status ---</option>
-                                        <option value="desa">Desa 1</option>
+                                    <select id="role" name="role" onChange={(e) => setRole(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option defaultValue="warga">--- Pilih Status ---</option>
+                                        <option value="kecamatan">Admin Kecamatan</option>
                                         <option value="desa">Operator Desa</option>
                                         <option value="warga">Warga</option>
                                     </select>
+                                    {
+                                        errors.role && (
+                                            <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                <span className="font-semibold">Perhatian!</span> {errors.role[0]}
+                                            </div>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -112,36 +153,78 @@ export default function UserCreate() {
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input type="text" name="nik" id="nik" onChange={(e) => setNik(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="nik" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nomor Induk Kependudukan</label>
+                                        {
+                                            errors.nik && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.nik[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input type="text" name="nama_lengkap" id="nama_lengkap" onChange={(e) => setNamaLengkap(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="nama_lengkap" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama Lengkap</label>
+                                        {
+                                            errors.nama_lengkap && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.nama_lengkap[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input type="text" name="pekerjaan" id="pekerjaan" onChange={(e) => setPekerjaan(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                         <label htmlFor="pekerjaan" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pekerjaan</label>
+                                        {
+                                            errors.pekerjaan && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.pekerjaan[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                     <div className="mb-5">
-                                        <select id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option selected>--- Pilih Desa ---</option>
+                                        <select id="role" name="desa" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>
+                                            <option defaultValue="null">--- Pilih Desa ---</option>
                                             <option value="desa">Desa 1</option>
                                             <option value="desa">Desa 2</option>
                                             <option value="desa">Desa 3</option>
                                             <option value="desa">Desa 4</option>
                                             <option value="desa">Desa 5</option>
                                         </select>
+                                        {
+                                            errors.desa && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.desa[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 </div>
                                 <div className="relative z-0 w-full mb-5 group">
                                     <textarea type="text" name="alamat" id="alamat" onChange={(e) => setAlamat(e.target.value)} rows="4" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=""></textarea>
                                     <label htmlFor="alamat" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-gray-50 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Alamat</label>
+                                    {
+                                        errors.alamat && (
+                                            <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                <span className="font-semibold">Perhatian!</span> {errors.alamat[0]}
+                                            </div>
+                                        )
+                                    }
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Masukan Tanggal Lahir</label>
-                                        <input type="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        <input type="date" name="tanggal_lahir" onChange={(e) => setTanggalLahir(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                        {
+                                            errors.tanggal_lahir && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.tanggal_lahir[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                     <div className="mb-5">
                                         <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="gender">Jenis Kelamin</label>
@@ -154,17 +237,31 @@ export default function UserCreate() {
                                                 <input id="bordered-radio-2" type="radio" value="wanita" name="gender" onChange={(e) => setGender(e.target.value)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                                 <label htmlFor="bordered-radio-2" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wanita</label>
                                             </div>
+                                            {
+                                                errors.gender && (
+                                                    <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                        <span className="font-semibold">Perhatian!</span> {errors.gender[0]}
+                                                    </div>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="mb-5">
-                                        <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="user_avatar">Unggah Foto</label>
-                                        <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" name="foto" id="user_avatar" type="file" onChange={handlePhoto} />
+                                        <label className="block mb-3 text-sm font-medium text-gray-900 dark:text-white" htmlFor="foto">Unggah Foto</label>
+                                        <input name="foto" id="foto" type="file" onChange={handlePhoto} className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="foto" />
+                                        {
+                                            errors.foto && (
+                                                <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                                    <span className="font-semibold">Perhatian!</span> {errors.foto[0]}
+                                                </div>
+                                            )
+                                        }
                                     </div>
-                                    <div class="flex items-center">
-                                        <input name="kawin" id="link-checkbox" type="checkbox" value="true" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                        <label for="link-checkbox" class="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
+                                    <div className="flex items-center">
+                                        <input name="kawin" id="link-checkbox" type="checkbox" value="1" onChange={(e) => setKawin(e.target.value)} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                        <label htmlFor="link-checkbox" className="ms-2 text-md font-medium text-gray-900 dark:text-gray-300">Sudah Menikah</label>
                                     </div>
                                 </div>
                             </div>

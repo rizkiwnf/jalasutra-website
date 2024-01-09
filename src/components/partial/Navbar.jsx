@@ -23,7 +23,7 @@ const Navbar = ({ links }) => {
                             }
                         </ul>
                     </div>
-                    <a href="/user" className="hidden md:block login py-1.5 w-24 font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-full text-center">
+                    <a href="/login" className="hidden md:block login py-1.5 w-24 font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-full text-center">
                         Masuk
                     </a>
                     {/* <Link to="/login" className="hidden md:block login py-1.5 w-24 font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-full text-center">
@@ -45,8 +45,7 @@ const Navbar = ({ links }) => {
                         </ul>
                     </div>
                     <div className="login py-2 w-full font-semibold text-white bg-dark-blue rounded-full">
-                        {/* <Link to="/login">Masuk</Link> */}
-                        <a href="/user">Masuk</a>
+                        <a href="/login">Masuk</a>
                     </div>
                 </div>
             </div>
