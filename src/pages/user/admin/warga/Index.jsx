@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Api from "../../../api/index.jsx"
-import AdminHeader from "../../../components/AdminHeader";
-import { HiSquaresPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2";
-import Swal from "sweetalert2";
+import { useState, useEffect } from "react"
+import Swal from "sweetalert2"
+import Api from "../../../../api/index.jsx"
+import AdminHeader from "../../../../components/AdminHeader.jsx"
+import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
 
-export default function IndexServices() {
-    const [services, setServices] = useState([]);
+export default function IndexUser() {
+    const [users, setUsers] = useState([]);
 
-    const fetchDataServices = async () => {
-        await Api.get('/api/service')
+    const fetchDataUsers = async () => {
+        await Api.get('/api/user')
             .then(response => {
-                setServices(response.data.data.data);
+                setUsers(response.data.data.data);
             })
     }
 
     useEffect(() => {
-        fetchDataServices();
+        fetchDataUsers();
     }, []);
 
     function deleteConfirmation(id) {
         Swal.fire({
-            title: "Apakah Anda yakin menghapus layanan ini?",
+            title: "Apakah Anda yakin menghapus data ini?",
             text: "Mohon periksa kembali!",
             icon: "warning",
             showCancelButton: true,
@@ -31,33 +30,33 @@ export default function IndexServices() {
             cancelButtonText: "Tidak",
         }).then((result) => {
             if (result.isConfirmed) {
-                deleteService(id);
+                deleteUser(id);
                 Swal.fire({
                     title: "Dihapus!",
-                    text: "Layanan telah dihapus.",
+                    text: "Data pengguna telah dihapus.",
                     icon: "success"
                 });
             }
         });
     }
 
-    const deleteService = async (id) => {
-        await Api.delete(`/api/service/${id}`)
+    const deleteUser = async (id) => {
+        await Api.delete(`/api/user/${id}`)
             .then(() => {
-                fetchDataServices();
+                fetchDataUsers();
             })
     }
 
-    const Title = "Daftar Layanan"
+    const Title = "Daftar Pengguna"
 
     return (
         <main>
             <AdminHeader title={Title} />
             <div className="flex flex-row-reverse">
-                <Link to="/admin/service/create" className="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
-                    <HiSquaresPlus className="w-5 h-5 me-2" />
-                    Tambah Layanan
-                </Link>
+                <a href="/admin/user/create" className="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800">
+                    <HiUserPlus className="w-5 h-5 me-2" />
+                    Tambah Pengguna
+                </a>
             </div>
             <div className="mt-5 bg-white rounded-lg text-black w-full overflow-y-hidden">
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -68,16 +67,13 @@ export default function IndexServices() {
                                     No
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Nama
+                                    Username
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Jenis
+                                    Email
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Deskripsi
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Logo
+                                    Role
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Aksi
@@ -86,22 +82,19 @@ export default function IndexServices() {
                         </thead>
                         <tbody>
                             {
-                                services.length > 0 ?
-                                    services.map((service, index) => (
+                                users.length > 0 ?
+                                    users.map((user, index) => (
                                         <tr className="bg-white border-b text-black" key={index}>
-                                            <td className="px-6 py-4">{index + 1}</td>
-                                            <td className="px-6 py-4">{service.nama}</td>
-                                            <td className="px-6 py-4">{service.jenis}</td>
-                                            <td className="px-6 py-4">{service.deskripsi}</td>
-                                            <td className="px-6 py-4">
-                                                <img src={service.gambar} alt={service.nama} width="100" className="rounded" />
-                                            </td>
+                                            <td className="px-6 py-4 capitalize">{index + 1}</td>
+                                            <td className="px-6 py-4 capitalize">{user.username}</td>
+                                            <td className="px-6 py-4">{user.email}</td>
+                                            <td className="px-6 py-4 capitalize">{user.role}</td>
                                             <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
-                                                <a href={`/admin/service/detail/${service.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                <a href={`/admin/user/detail/${user.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                     <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
                                                     Lihat
                                                 </a>
-                                                <button type="button" onClick={() => deleteConfirmation(service.id)} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                                <button type="button" onClick={() => deleteConfirmation(user.id)} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                                                     <HiTrash className="w-5 h-5 text-white me-2" />
                                                     Hapus
                                                 </button>
@@ -109,7 +102,7 @@ export default function IndexServices() {
                                         </tr>
                                     )) :
                                     <tr className="bg-white border-b text-black">
-                                        <td colSpan="6" className="text-center p-4">
+                                        <td colSpan="5" className="text-center p-4">
                                             <div className="px-6 py-4 bg-red-400 text-red-700 mb-0 border border-red-700 rounded">
                                                 Data Belum Tersedia!
                                             </div>

@@ -1,6 +1,6 @@
-import { DATA_PENGAJUAN } from '../../../../data/AdminData'
+import { DATA_PENGAJUAN } from '../../../../../data/AdminData'
 import { HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
-import AdminHeader from '../../../../components/AdminHeader'
+import AdminHeader from '../../../../../components/AdminHeader'
 
 export default function IndexMail() {
     const Title = "Surat Masuk"

@@ -1,5 +1,5 @@
-import AdminHeader from "../../../components/AdminHeader";
-import MailTemplate from "../../../assets/images/mail-template.jpg";
+import AdminHeader from "../../../../components/AdminHeader";
+import MailTemplate from "../../../../assets/images/mail-template.jpg";
 
 export default function DetailMail() {
     return (

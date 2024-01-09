@@ -1,4 +1,4 @@
-import Pic from "../../assets/svg/welcome.svg";
+import Pic from "../../../assets/svg/welcome.svg";
 
 export default function Home() {
     return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import Api from "../../../api";
-import Loader from "../../../components/Loader";
+import Api from "../../../../api";
+import Loader from "../../../../components/Loader";
 import { HiMiniPencil } from "react-icons/hi2";
 
 export default function UserDetail() {

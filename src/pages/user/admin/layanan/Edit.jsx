@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import Api from "../../../api";
-import AdminHeader from "../../../components/AdminHeader";
-import Loader from '../../../components/Loader.jsx';
+import Api from "../../../../api";
+import AdminHeader from "../../../../components/AdminHeader";
+import Loader from '../../../../components/Loader.jsx';
 import { FaSave } from "react-icons/fa";
 
 export default function EditServices() {

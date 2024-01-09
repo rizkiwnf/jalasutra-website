@@ -1,9 +1,9 @@
-import ServiceCardUser from "../../../components/ServiceCardUser";
+import ServiceCardUser from "../../../../components/ServiceCardUser";
 import { BsFilterLeft } from "react-icons/bs";
-import Logo1 from "../../../assets/images/service-logo-1.png";
-import Logo2 from "../../../assets/images/service-logo-2.png";
-import Logo3 from "../../../assets/images/service-logo-3.png";
-import Logo4 from "../../../assets/images/service-logo-4.png";
+import Logo1 from "../../../../assets/images/service-logo-1.png";
+import Logo2 from "../../../../assets/images/service-logo-2.png";
+import Logo3 from "../../../../assets/images/service-logo-3.png";
+import Logo4 from "../../../../assets/images/service-logo-4.png";
 
 export default function Index() {
     let services = [
