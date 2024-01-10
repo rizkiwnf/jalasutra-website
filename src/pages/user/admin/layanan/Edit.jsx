@@ -15,6 +15,8 @@ export default function EditServices() {
     const [kontak, setKontak] = useState("");
     const [gambar, setGambar] = useState("");
 
+    const token = localStorage.getItem('token');
+
     const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function EditServices() {
     const { id } = useParams();
 
     const fetchDetailService = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get(`/api/service/${id}`)
             .then(response => {
                 setNama(response.data.data.nama);
@@ -142,6 +145,7 @@ export default function EditServices() {
                                 errors.gambar && (
                                     <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                                         <span className="font-semibold">Perhatian!</span> {errors.gambar[0]}
+                                        {console.log(errors.gambar)}
                                     </div>
                                 )
                             }

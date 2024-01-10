@@ -14,6 +14,8 @@ export default function CreateServices() {
     const [kontak, setKontak] = useState("");
     const [gambar, setGambar] = useState("");
 
+    const token = localStorage.getItem('token');
+
     const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
@@ -43,6 +45,8 @@ export default function CreateServices() {
         formData.append('persyaratan', persyaratan);
         formData.append('kontak', kontak);
         formData.append('gambar', gambar);
+
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
         await Api.post('/api/service', formData)
             .then(() => {
