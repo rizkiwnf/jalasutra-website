@@ -33,6 +33,8 @@ export default function CreateServices() {
         });
     }
 
+    Api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
     const storeData = async (e) => {
         e.preventDefault();
 
@@ -46,7 +48,6 @@ export default function CreateServices() {
         formData.append('kontak', kontak);
         formData.append('gambar', gambar);
 
-        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
         await Api.post('/api/service', formData)
             .then(() => {

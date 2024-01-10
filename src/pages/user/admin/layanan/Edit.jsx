@@ -23,8 +23,9 @@ export default function EditServices() {
 
     const { id } = useParams();
 
+    Api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
     const fetchDetailService = async () => {
-        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get(`/api/service/${id}`)
             .then(response => {
                 setNama(response.data.data.nama);
@@ -44,7 +45,7 @@ export default function EditServices() {
     }, [])
 
     const handlerGambar = (e) => {
-        setGambar(e.target.value[0]);
+        setGambar(e.target.files[0]);
     }
 
     const successNotification = () => {

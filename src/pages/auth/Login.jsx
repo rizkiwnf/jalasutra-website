@@ -52,7 +52,7 @@ export default function Login() {
             })
             .catch((error) => {
                 failedNotification();
-                setError(error.response.data);
+                // setError(error.response.data);
             })
     }
     return (
