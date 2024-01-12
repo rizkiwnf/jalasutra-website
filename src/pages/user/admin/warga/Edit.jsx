@@ -27,7 +27,10 @@ export default function UserEdit() {
 
     const { id } = useParams();
 
+    const token = localStorage.getItem('token');
+
     const fetchDetailUser = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get(`/api/user/${id}`)
             .then(response => {
                 setUsername(response.data.data.user.username);

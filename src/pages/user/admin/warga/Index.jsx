@@ -7,15 +7,20 @@ import { HiUserPlus, HiTrash, HiDocumentMagnifyingGlass } from "react-icons/hi2"
 export default function IndexUser() {
     const [users, setUsers] = useState([]);
 
+    const token = localStorage.getItem('token');
+
     const fetchDataUsers = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get('/api/user')
             .then(response => {
+                console.log(response.data.data.data);
                 setUsers(response.data.data.data);
             })
     }
 
     useEffect(() => {
         fetchDataUsers();
+        // eslint-disable-next-line
     }, []);
 
     function deleteConfirmation(id) {
@@ -41,6 +46,7 @@ export default function IndexUser() {
     }
 
     const deleteUser = async (id) => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.delete(`/api/user/${id}`)
             .then(() => {
                 fetchDataUsers();
@@ -88,7 +94,9 @@ export default function IndexUser() {
                                             <td className="px-6 py-4 capitalize">{index + 1}</td>
                                             <td className="px-6 py-4 capitalize">{user.username}</td>
                                             <td className="px-6 py-4">{user.email}</td>
-                                            <td className="px-6 py-4 capitalize">{user.role}</td>
+                                            <td className="px-6 py-4">
+                                                <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{user.role.nama}</span>
+                                            </td>
                                             <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
                                                 <a href={`/admin/user/detail/${user.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                     <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
