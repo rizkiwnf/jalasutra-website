@@ -45,10 +45,10 @@ export default function Login() {
                 successNotification();
                 localStorage.setItem('token', response.data.token);
                 console.log(response.data.user.role);
-                if (response.data.user.role === 'warga') {
-                    navigate(`/warga/${response.data.user.id}`);
+                if (response.data.user.role !== 'warga') {
+                    navigate('/admin');
                 }
-                navigate('/admin');
+                navigate(`/warga/${response.data.user.id}`);
             })
             .catch((error) => {
                 failedNotification();

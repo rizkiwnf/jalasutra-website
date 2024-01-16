@@ -26,6 +26,8 @@ import UserHome from './pages/user/warga/Home';
 import UserService from './pages/user/warga/layanan/Index';
 import UserMail from './pages/user/warga/surat/Index';
 
+import NotFound from './pages/error/NotFound';
+
 import 'flowbite-datepicker';
 import 'flowbite/dist/flowbite';
 import 'flowbite/dist/datepicker.turbo.js';
@@ -66,6 +68,8 @@ function App() {
           <Route path="user/edit/:id" element={<AdminUserEdit />} />
           <Route path="news" element={<AdminNewsIndex />} />
         </Route>
+        {/* Error Route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
