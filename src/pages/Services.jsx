@@ -1,44 +1,25 @@
+import { useState, useEffect } from "react";
 import ServiceCard from "../components/ServiceCard";
 import { BsFilterLeft } from "react-icons/bs";
-import Logo1 from "../assets/images/service-logo-1.png";
-import Logo2 from "../assets/images/service-logo-2.png";
-import Logo3 from "../assets/images/service-logo-3.png";
+import Api from "../api";
 
 export default function Service() {
-    let services = [
-        {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
-            desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
-        },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
-        },
-        {
-            logo: Logo1,
-            name: "BPJS Ketenagakerjaan",
-            desc: "Non reprehenderit proident aliqua minim mollit aliquip. Qui nulla mollit voluptate ex ex velit laborum tempor dolore. Mollit dolor in fugiat est minim occaecat. Qui eu qui fugiat cupidatat tempor nisi exercitation eiusmod officia do.",
-        },
-        {
-            logo: Logo2,
-            name: "Email",
-            desc: "Consequat ut officia proident nostrud Lorem sunt aute eiusmod non pariatur velit. Id proident velit in adipisicing voluptate. Lorem aliqua et non excepteur in. Officia veniam veniam proident exercitation aute culpa laboris consectetur esse non et cupidatat. Aliquip proident tempor deserunt proident eiusmod aliqua minim est nulla minim non.",
-        },
-        {
-            logo: Logo3,
-            name: "PT PLN",
-            desc: "Irure ullamco dolore eiusmod magna exercitation sit id amet. Excepteur id nisi ut ex. Laboris voluptate aliquip aliqua sunt cillum nostrud aliqua. Lorem cillum et amet ipsum pariatur minim do voluptate sit nisi dolor aliquip.",
-        },
-    ];
+    const [services, setServices] = useState([]);
+
+    const fetchDataServices = async () => {
+        await Api.get('/api/service')
+            .then(response => {
+                setServices(response.data.data.data);
+            })
+    }
+
+    useEffect(() => {
+        fetchDataServices();
+        // eslint-disable-next-line
+    }, [])
+
     return (
-        <main className="container my-5 px-8 py-6 bg-white shadow-lg border-t-2 rounded-lg">
+        <main className="p-8 bg-white shadow-lg border-t-2 rounded-lg">
             <div className="flex flex-row justify-between items-center">
                 <form className="w-1/3">
                     <div className="flex">
