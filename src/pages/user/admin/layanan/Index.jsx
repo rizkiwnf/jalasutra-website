@@ -95,19 +95,17 @@ export default function IndexServices() {
                                         <tr className="bg-white border-b text-black" key={index}>
                                             <td className="px-6 py-4">{index + 1}</td>
                                             <td className="px-6 py-4">{service.nama}</td>
-                                            <td className="px-6 py-4">{service.jenis}</td>
+                                            <td className="px-6 py-4">{service.type.nama}</td>
                                             <td className="px-6 py-4">{service.deskripsi}</td>
                                             <td className="px-6 py-4">
                                                 <img src={service.gambar} alt={service.nama} width="100" className="rounded" />
                                             </td>
-                                            <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
+                                            <td className="flex flex-row px-6 py-4 items-center gap-2 text-xl">
                                                 <a href={`/admin/service/detail/${service.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
-                                                    Lihat
+                                                    <HiDocumentMagnifyingGlass className="w-5 h-5 text-white" />
                                                 </a>
                                                 <button type="button" onClick={() => deleteConfirmation(service.id)} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                                                    <HiTrash className="w-5 h-5 text-white me-2" />
-                                                    Hapus
+                                                    <HiTrash className="w-5 h-5 text-white" />
                                                 </button>
                                             </td>
                                         </tr>

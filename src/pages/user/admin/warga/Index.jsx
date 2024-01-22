@@ -13,7 +13,7 @@ export default function IndexUser() {
         Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get('/api/user')
             .then(response => {
-                console.log(response.data.data.data);
+                // console.log(response.data.data.data);
                 setUsers(response.data.data.data);
             })
     }
@@ -95,16 +95,14 @@ export default function IndexUser() {
                                             <td className="px-6 py-4 capitalize">{user.username}</td>
                                             <td className="px-6 py-4">{user.email}</td>
                                             <td className="px-6 py-4">
-                                                <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{user.role.nama}</span>
+                                                <span className="bg-indigo-100 text-indigo-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">{user.role}</span>
                                             </td>
                                             <td className="flex flex-wrap px-6 py-4 items-center gap-2 text-xl">
                                                 <a href={`/admin/user/detail/${user.id}`} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    <HiDocumentMagnifyingGlass className="w-5 h-5 text-white me-2" />
-                                                    Lihat
+                                                    <HiDocumentMagnifyingGlass className="w-5 h-5 text-white" />
                                                 </a>
                                                 <button type="button" onClick={() => deleteConfirmation(user.id)} className="px-2.5 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                                                    <HiTrash className="w-5 h-5 text-white me-2" />
-                                                    Hapus
+                                                    <HiTrash className="w-5 h-5 text-white" />
                                                 </button>
                                             </td>
                                         </tr>
