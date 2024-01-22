@@ -7,9 +7,12 @@ import { HiMiniPencil } from "react-icons/hi2";
 export default function DetailServices() {
     const [service, setServices] = useState([]);
 
+    const token = localStorage.getItem('token');
+
     const { id } = useParams();
 
     const fetchDetailService = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get(`/api/service/${id}`)
             .then(response => {
                 setServices(response.data.data);

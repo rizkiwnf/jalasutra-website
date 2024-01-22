@@ -9,7 +9,10 @@ export default function UserDetail() {
 
     const { id } = useParams();
 
+    const token = localStorage.getItem('token');
+
     const fetchDetailUser = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get(`/api/user/${id}`)
             .then(response => {
                 setProfile(response.data.data);
@@ -61,6 +64,10 @@ export default function UserDetail() {
                             <div className="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 text-gray-900">Jenis Kelamin</dt>
                                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize">{profile.gender}</dd>
+                            </div>
+                            <div className="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                <dt className="text-sm font-medium leading-6 text-gray-900">Desa</dt>
+                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize">{profile.village.nama}</dd>
                             </div>
                             <div className="px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 text-gray-900">Alamat</dt>

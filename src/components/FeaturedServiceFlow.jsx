@@ -6,28 +6,28 @@ export default function FeaturedServiceFlow() {
             <div className="flex justify-between items-start gap-3 mt-8 p-4 md:mx-20">
                 <img src={Picture} className="w-2/3" alt="" />
                 <div className="w-full md:p-5">
-                    <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Alur Pengajuan Surat</h2>
+                    <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Standard Pelayanan Publik</h2>
                     <ul className="max-w-full space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                         <li>
-                            Culpa magna culpa deserunt dolor quis consequat eu eiusmod nisi.
+                            Persyaratan
                         </li>
                         <li>
-                            Est qui nostrud sint pariatur exercitation irure voluptate est consequat laborum cillum ut velit.
+                            Sistem, Mekanisme, dan Prosedur
                         </li>
                         <li>
-                            In culpa laboris officia ullamco ex occaecat irure mollit nisi ad exercitation Lorem.
+                            Jangka Waktu Pelayanan
                         </li>
                         <li>
-                            Nostrud quis eu aliquip Lorem occaecat mollit.
+                            Biaya atau Tarif
                         </li>
                         <li>
-                            Ipsum cillum elit sunt do aliqua reprehenderit anim aliquip irure consequat laborum et quis amet.
+                            Penanganan Pengaduan, Saran dan Masukan
                         </li>
                     </ul>
                     <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
                         <h2 id="accordion-flush-heading-1">
                             <button type="button" className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
-                                <span>What is Flowbite?</span>
+                                <span>Apa itu Jalasutra?</span>
                                 <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                                 </svg>
@@ -41,7 +41,7 @@ export default function FeaturedServiceFlow() {
                         </div>
                         <h2 id="accordion-flush-heading-2">
                             <button type="button" className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
-                                <span>Is there a Figma file available?</span>
+                                <span>Apa fungsi Jalasutra?</span>
                                 <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                                 </svg>
@@ -55,7 +55,7 @@ export default function FeaturedServiceFlow() {
                         </div>
                         <h2 id="accordion-flush-heading-3">
                             <button type="button" className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
-                                <span>What are the differences between Flowbite and Tailwind UI?</span>
+                                <span>Apa bedanya dengan aplikasi sebelumnya?</span>
                                 <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                                 </svg>

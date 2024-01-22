@@ -45,7 +45,7 @@ export default function Login() {
                 successNotification();
                 localStorage.setItem('token', response.data.token);
                 console.log(response.data.user.role);
-                if (response.data.user.role === 'warga') {
+                if (response.data.user.role === 'WARGA') {
                     navigate(`/warga/${response.data.user.id}`);
                 }
                 navigate('/admin');

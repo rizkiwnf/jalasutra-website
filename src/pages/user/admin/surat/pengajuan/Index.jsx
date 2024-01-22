@@ -8,23 +8,23 @@ export default function IndexMail() {
         <main>
             <AdminHeader title={Title} />
             <div className="mt-5 bg-white rounded-lg text-black w-full overflow-y-hidden">
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-white">
-                        <thead class="text-sm text-white uppercase bg-blue-600">
+                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left text-white">
+                        <thead className="text-sm text-white uppercase bg-blue-600">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     No
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Nomor SUrat
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Tanggal
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Pemohon
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Aksi
                                 </th>
                             </tr>

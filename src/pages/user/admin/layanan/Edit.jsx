@@ -15,11 +15,15 @@ export default function EditServices() {
     const [kontak, setKontak] = useState("");
     const [gambar, setGambar] = useState("");
 
+    const token = localStorage.getItem('token');
+
     const [errors, setErrors] = useState([]);
 
     const navigate = useNavigate();
 
     const { id } = useParams();
+
+    Api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     const fetchDetailService = async () => {
         await Api.get(`/api/service/${id}`)
@@ -41,7 +45,7 @@ export default function EditServices() {
     }, [])
 
     const handlerGambar = (e) => {
-        setGambar(e.target.value[0]);
+        setGambar(e.target.files[0]);
     }
 
     const successNotification = () => {
@@ -142,6 +146,7 @@ export default function EditServices() {
                                 errors.gambar && (
                                     <div className="p-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                                         <span className="font-semibold">Perhatian!</span> {errors.gambar[0]}
+                                        {console.log(errors.gambar)}
                                     </div>
                                 )
                             }

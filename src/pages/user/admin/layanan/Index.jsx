@@ -8,7 +8,10 @@ import Swal from "sweetalert2";
 export default function IndexServices() {
     const [services, setServices] = useState([]);
 
+    const token = localStorage.getItem('token');
+
     const fetchDataServices = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get('/api/service')
             .then(response => {
                 setServices(response.data.data.data);
@@ -17,6 +20,7 @@ export default function IndexServices() {
 
     useEffect(() => {
         fetchDataServices();
+        // eslint-disable-next-line
     }, []);
 
     function deleteConfirmation(id) {
