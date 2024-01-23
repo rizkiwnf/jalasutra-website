@@ -6,9 +6,10 @@ import ServiceLogo1 from "../assets/images/service-logo-1.png";
 import ServiceLogo2 from "../assets/images/service-logo-2.png";
 import ServiceLogo3 from "../assets/images/service-logo-3.png";
 import ServiceLogo4 from "../assets/images/service-logo-4.png";
-import NewsPic1 from "../assets/images/news-pic-1.png";
-import NewsPic2 from "../assets/images/news-pic-2.png";
-import NewsPic3 from "../assets/images/news-pic-3.png";
+import GalleryPic1 from "../assets/images/gallery/gallery-1.jpg";
+import GalleryPic2 from "../assets/images/gallery/gallery-2.jpeg";
+import GalleryPic3 from "../assets/images/gallery/gallery-3.jpg";
+import GalleryPic4 from "../assets/images/gallery/gallery-4.jpeg";
 import FeaturedServiceFlow from "../components/FeaturedServiceFlow";
 
 const Dashboard = () => {
@@ -33,36 +34,46 @@ const Dashboard = () => {
             title: 'PT KAI',
             description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
         },
+        {
+            logo: ServiceLogo3,
+            title: 'PLN',
+            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+        },
+        {
+            logo: ServiceLogo4,
+            title: 'PT KAI',
+            description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+        },
     ];
 
-    let news = [
+    let galleries = [
         {
-            logo: NewsPic1,
-            title: 'Berita 1',
+            pic: GalleryPic1,
+            title: 'Bupati Blitar Serahkan Zakat',
             date: '22 Maret 2023',
             description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
         },
         {
-            logo: NewsPic2,
-            title: 'Berita 2',
+            pic: GalleryPic2,
+            title: 'Bupati Blitar Laksanakan Forum Konsultasi Publik',
             date: '23 Maret 2023',
             description: 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi '
         },
         {
-            logo: NewsPic3,
-            title: 'Berita 3',
+            pic: GalleryPic3,
+            title: 'Bupati Blitar Resmikan Sabo Dam Kali Bentak',
             date: '24 Maret 2023',
             description: 'minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit '
         },
         {
-            logo: NewsPic1,
-            title: 'Berita 4',
+            pic: GalleryPic4,
+            title: 'Monitoring Pos PAM Lilin Semeru',
             date: '25 Maret 2023',
             description: 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi '
         },
         {
-            logo: NewsPic2,
-            title: 'Berita 5',
+            pic: GalleryPic2,
+            title: 'Bupati Blitar Laksanakan Forum Konsultasi Publik',
             date: '24 Maret 2023',
             description: 'minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit '
         },
@@ -71,7 +82,7 @@ const Dashboard = () => {
         <main>
             <HeroSection />
             <FeaturedServices services={services} />
-            <FeaturedNews news={news} />
+            <FeaturedNews galleries={galleries} />
             <FeaturedServiceFlow />
         </main>
     )

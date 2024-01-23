@@ -49,7 +49,7 @@ const FeaturedServices = ({ services }) => {
                         {
                             services.map((service, index) => (
                                 <SwiperSlide key={index} className="my-10">
-                                    <div className="bg-white lg:h-64 rounded-xl p-4">
+                                    <div className="bg-white lg:h-64 rounded-xl p-4 border border-gray-200 shadow-md">
                                         <div className="card-field flex flex-col gap-3 justify-between">
                                             <span>
                                                 <img src={service.logo} className="h-14" alt="" />

@@ -1,16 +1,14 @@
 import React from "react";
 import NewsBanner from '../assets/images/news-banner-1.jpeg';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Navigation } from 'swiper/modules';
 import SectionHeader from "./SectionHeader";
 
-const FeaturedNews = ({ news }) => {
+const FeaturedNews = ({ galleries }) => {
     return (
         <section id="news">
-            {/* <div className="my-10 mx-3 md:mx-0 w-screen">
-                <div className="container mx-auto bg-dark-blue/20 py-11 px-5 md:px-10 rounded-3xl"> */}
             <SectionHeader title='Berita Terkini' button='true' />
             <div className="bg-blue-500/20 mt-10 p-10 rounded-3xl">
                 <div className="flex flex-col gap-9">
@@ -31,7 +29,7 @@ const FeaturedNews = ({ news }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="second-content bg-white py-5 rounded-3xl">
+                    <div className="second-content bg-white py-5 rounded-lg">
                         <Swiper
                             breakpoints={{
                                 1080: {
@@ -60,29 +58,29 @@ const FeaturedNews = ({ news }) => {
                             className="mySwiper"
                         >
                             {
-                                news.map((news, index) => (
+                                galleries.map((data, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="card-field shadow-lg p-4">
                                             <div className="flex justify-center">
-                                                <img src={news.logo} alt="" className="h-40 md:h-36 lg:h-28" />
+                                                <img src={data.pic} alt="" className="h-40 md:h-36 lg:h-28" />
                                             </div>
                                             <div className="card-text text-justify flex flex-col justify-center mx-4 my-3">
-                                                <p className="text-center font-semibold mb-2">{news.title}</p>
-                                                <p className="text-xs tracking-wide">{news.description}</p>
-                                                <p className="text-xs text-right opacity-70 mt-3 ">{news.date}</p>
+                                                <p className="text-sm text-center font-semibold mb-2">{data.title}</p>
+                                                <p className="text-xs tracking-wide">{data.description}</p>
+                                                <p className="text-xs text-right opacity-70 mt-3 ">{data.date}</p>
                                             </div>
                                         </div>
                                     </SwiperSlide>
                                 ))
                             }
-                            <div className="button-prev top-24 left-1 absolute z-50 bg-white p-2 rounded-3xl">
+                            <div className="button-prev top-24 left-1 absolute z-50 bg-white p-1 rounded-3xl">
                                 <button className="swiper-button-prev bg-dark-blue p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                                     </svg>
                                 </button>
                             </div>
-                            <div className="button-next absolute top-24 right-1 z-50 bg-white p-2 rounded-3xl">
+                            <div className="button-next absolute top-24 right-1 z-50 bg-white p-1 rounded-3xl">
                                 <button className="swiper-button-next bg-dark-blue p-2 rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -93,8 +91,6 @@ const FeaturedNews = ({ news }) => {
                     </div>
                 </div>
             </div>
-            {/* </div>
-            </div> */}
         </section>
     )
 }
