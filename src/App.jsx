@@ -25,6 +25,7 @@ import AdminNewsIndex from './pages/user/admin/berita/Index';
 import UserHome from './pages/user/warga/Home';
 import UserService from './pages/user/warga/layanan/Index';
 import UserMail from './pages/user/warga/surat/Index';
+import AdminProfileIndex from './pages/user/admin/profile/Index';
 
 import NotFound from './pages/error/NotFound';
 
@@ -53,7 +54,7 @@ function App() {
           <Route path="surat" element={<UserMail />} />
         </Route>
         {/* Admin Page Route Path */}
-        <Route path="/admin" element={<LayoutAdmin />}>
+        <Route path="/admin/:id" element={<LayoutAdmin />}>
           <Route index element={<AdminHome />} />
           <Route path="services" element={<AdminServicesIndex />} />
           <Route path="service/create" element={<AdminServicesCreate />} />
@@ -67,6 +68,7 @@ function App() {
           <Route path="user/detail/:id" element={<AdminUserDetail />} />
           <Route path="user/edit/:id" element={<AdminUserEdit />} />
           <Route path="news" element={<AdminNewsIndex />} />
+          <Route path="profile" element={<AdminProfileIndex />} />
         </Route>
         {/* Error Route */}
         <Route path="*" element={<NotFound />} />

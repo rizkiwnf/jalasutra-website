@@ -10,9 +10,12 @@ import { ImUsers } from "react-icons/im";
 import { RiMailSendFill, RiCustomerService2Fill } from "react-icons/ri";
 
 const LayoutAdmin = () => {
-    const [users, setUsers] = useState("");
+    const [users, setUsers] = useState([]);
+    const [admin, setAdmin] = useState("");
 
     const token = localStorage.getItem('token');
+
+    const { id } = useParams();
 
     const navigate = useNavigate();
 
@@ -20,7 +23,15 @@ const LayoutAdmin = () => {
         Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
         await Api.get('/api/user')
             .then((response) => {
-                setUsers(response.data.data);
+                setUsers(response.data.data.data);
+            })
+    }
+
+    const fetchAuthUser = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        await Api.get(`/api/user/${id}`)
+            .then((response) => {
+                setAdmin(response.data.data);
             })
     }
 
@@ -29,6 +40,7 @@ const LayoutAdmin = () => {
             navigate('/login');
         }
         fetchDataUser();
+        fetchAuthUser();
         // eslint-disable-next-line
     }, []);
 
@@ -37,7 +49,7 @@ const LayoutAdmin = () => {
         await Api.post('/api/logout')
             .then(() => {
                 localStorage.removeItem("token");
-                navigate('/');
+                navigate('/welcome');
             });
     };
 
@@ -53,10 +65,9 @@ const LayoutAdmin = () => {
                                     <path clipRule="evenodd" fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
                                 </svg>
                             </button>
-                            <Link to="/admin" className="flex ms-2 md:me-24">
+                            <a href={`/admin/${id}`} className="flex ms-2 md:me-24">
                                 <img src={Logo} className="h-12 me-3" alt="FlowBite Logo" />
-                                {/* <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span> */}
-                            </Link>
+                            </a>
                         </div>
                         <div className="flex items-center">
                             <div className="flex items-center ms-3">
@@ -69,21 +80,21 @@ const LayoutAdmin = () => {
                                 <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                                     <div className="px-4 py-3" role="none">
                                         <p className="text-sm text-gray-900 dark:text-white" role="none">
-                                            Neil Sims
+                                            {admin.user.username}
                                         </p>
                                         <p className="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                            neil.sims@flowbite.com
+                                            {admin.user.email}
                                         </p>
                                     </div>
                                     <ul className="py-1" role="none">
                                         <li>
-                                            <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</Link>
+                                            <a href={`/admin/${id}`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
                                         </li>
                                         <li>
-                                            <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</Link>
+                                            <Link to={`/admin/${id}/profile`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</Link>
+                                            <button type="button" onClick={logoutHandler} className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -147,12 +158,6 @@ const LayoutAdmin = () => {
                                 <span className="flex-1 ms-3 whitespace-nowrap">Berita</span>
                             </Link>
                         </li>
-                        {/* <li>
-                            <Link to="/admin/login" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <TbLogin2 className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-                                <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-                            </Link>
-                        </li> */}
                         <li>
                             <button type="button" onClick={logoutHandler} className="flex justify-start items-center p-2 w-full text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <TbLogout className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
