@@ -1,4 +1,4 @@
-import Pic from "../assets/svg/coming-soon-1.svg"
+import Pic from "../../assets/svg/coming-soon-1.svg"
 
 export default function Maintanance() {
     return (

@@ -65,9 +65,9 @@ const FeaturedNews = ({ galleries }) => {
                                                 <img src={data.pic} alt="" className="h-40 md:h-36 lg:h-28" />
                                             </div>
                                             <div className="card-text text-justify flex flex-col justify-center mx-4 my-3">
-                                                <p className="text-sm text-center font-semibold mb-2">{data.title}</p>
-                                                <p className="text-xs tracking-wide">{data.description}</p>
-                                                <p className="text-xs text-right opacity-70 mt-3 ">{data.date}</p>
+                                                <div className="text-sm text-center font-semibold mb-2 overflow-auto">{data.title}</div>
+                                                <div className="h-24 text-xs tracking-wide text-ellipsis overflow-hidden">{data.description}</div>
+                                                <div className="text-xs text-right opacity-70 mt-3 ">{data.date}</div>
                                             </div>
                                         </div>
                                     </SwiperSlide>

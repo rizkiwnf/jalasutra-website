@@ -50,32 +50,32 @@ const Dashboard = () => {
         {
             pic: GalleryPic1,
             title: 'Bupati Blitar Serahkan Zakat',
-            date: '22 Maret 2023',
-            description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
+            date: '4 Januari 2024',
+            description: 'Badan Amil Zakat Naional (BAZNAS) Kabupaten Blitar melangsungkan Pentasyarufan Zakat Tahun 2024 di Desa Pasirharjo Kecamatan Talun, Kamis (04/01/2024). Acara ini dihadiri Bupati Blitar Rini Syarifah didampingi Ketua Baznas, OPD Terkait, Forkopimcam serta penerima zakat.'
         },
         {
             pic: GalleryPic2,
             title: 'Bupati Blitar Laksanakan Forum Konsultasi Publik',
             date: '23 Maret 2023',
-            description: 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi '
+            description: 'Pemerintah Kabupaten Blitar mengadakan Forum Konsultasi Publik Rancangan Awal Rencana Pembangunan Jangka Panjang Kabupaten Blitar (RPJPD) Kabupaten Blitar Tahun 2025-2045. Kegiatan yang dibuka oleh Bupati Blitar, Hj. Rini Syarifah ini dilaksanakan pada Kamis (21/12) di Ruang Rapat Candi Penataran Kanigoro.'
         },
         {
             pic: GalleryPic3,
             title: 'Bupati Blitar Resmikan Sabo Dam Kali Bentak',
             date: '24 Maret 2023',
-            description: 'minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit '
+            description: ' Bupati Blitar Rini Syarifah didampingi Kepala Dinas PUPR meresmikan Sabo Dam Kali Bentak di Kecamatan Panggungrejo, Rabu (13/12/2023). Mak Rini mengatakan sebelumnya, Sabo Dam Kali Bentak mengalami rusak parah akibat banjir tahun 2022. Mak Rini meminta Dinas PUPR untuk segera melakukan perbaikan sehingga dapat diresmikan pada hari ini.'
         },
         {
             pic: GalleryPic4,
             title: 'Monitoring Pos PAM Lilin Semeru',
             date: '25 Maret 2023',
-            description: 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi '
+            description: 'Kegiatan Monitoring POS PAM Natal 2023 dan Tahun Baru 2024 tempat Pos Pam Srengat. Tim UPP Kabupaten Blitar melakukan sidak monitoring pada tanggal 24 Desember 2023 pukul 10.00 s/d selesai. Situasi arus lalu lintas seputaran Pos Pam Srengat dilaporkan landai lancar, aktifitas masyarakat belum ada peningkatan.'
         },
         {
             pic: GalleryPic2,
             title: 'Bupati Blitar Laksanakan Forum Konsultasi Publik',
             date: '24 Maret 2023',
-            description: 'minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit '
+            description: 'Pemerintah Kabupaten Blitar mengadakan Forum Konsultasi Publik Rancangan Awal Rencana Pembangunan Jangka Panjang Kabupaten Blitar (RPJPD) Kabupaten Blitar Tahun 2025-2045. Kegiatan yang dibuka oleh Bupati Blitar, Hj. Rini Syarifah ini dilaksanakan pada Kamis (21/12) di Ruang Rapat Candi Penataran Kanigoro.'
         },
     ];
     return (
