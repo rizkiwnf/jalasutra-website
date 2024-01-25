@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import Api from "../../../api"
 import { HiUsers, HiEnvelopeOpen, HiFaceSmile } from "react-icons/hi2"
 import { DATA_BERANDA } from "../../../data/AdminData"
 import { getStatus } from "../../../utils/getStatus"
@@ -6,6 +8,28 @@ import AdminHeader from "../../../components/AdminHeader"
 import Profile from "../../../assets/images/blank-profile-picture.jpg"
 
 export default function Home() {
+    const [users, setUsers] = useState([]);
+
+    const token = localStorage.getItem('token');
+
+    const navigate = useNavigate();
+
+    const fetchDataUser = async () => {
+        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        await Api.get('/api/admin/users')
+            .then((response) => {
+                setUsers(response.data.data.data);
+            })
+    }
+
+    useEffect(() => {
+        if (!token) {
+            navigate('/login');
+        }
+        fetchDataUser();
+        // eslint-disable-next-line
+    }, []);
+
     const Title = "Dashboard"
     return (
         <main>
@@ -74,42 +98,28 @@ export default function Home() {
                         </div>
                         <div className="flow-root">
                             <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-                                <li className="py-3 sm:py-4">
-                                    <div className="flex items-center">
-                                        <div className="flex-shrink-0">
-                                            <img className="w-8 h-8 rounded-full" src={Profile} alt="Profile" />
-                                        </div>
-                                        <div className="flex-1 min-w-0 ms-4">
-                                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                                Kecamatan
-                                            </p>
-                                            <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                kecamatan@gmail.com
-                                            </p>
-                                        </div>
-                                        <div className="inline-flex items-center text-base font-medium text-gray-900 dark:text-white">
-                                            Admin
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="py-3 sm:py-4">
-                                    <div className="flex items-center">
-                                        <div className="flex-shrink-0">
-                                            <img className="w-8 h-8 rounded-full" src={Profile} alt="Profile" />
-                                        </div>
-                                        <div className="flex-1 min-w-0 ms-4">
-                                            <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                                Kecamatan
-                                            </p>
-                                            <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                                                kecamatan@gmail.com
-                                            </p>
-                                        </div>
-                                        <div className="inline-flex items-center text-base font-medium text-gray-900 dark:text-white">
-                                            Admin
-                                        </div>
-                                    </div>
-                                </li>
+                                {
+                                    users.map((user, index) => (
+                                        <li key={index} className="py-3 sm:py-4">
+                                            <div className="flex items-center">
+                                                <div className="flex-shrink-0">
+                                                    <img className="w-8 h-8 rounded-full" src={user.profile.photo ?? Profile} alt="Profile" />
+                                                </div>
+                                                <div className="flex-1 min-w-0 ms-4">
+                                                    <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                                        {user.profile.nama_lengkap}
+                                                    </p>
+                                                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                        {user.email}
+                                                    </p>
+                                                </div>
+                                                <div className="inline-flex items-center text-gray-900 dark:text-white">
+                                                    <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-indigo-400 border border-indigo-400">{user.role}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </div>
                     </div>

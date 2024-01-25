@@ -22,7 +22,7 @@ const LayoutAdmin = () => {
 
     const fetchDataUser = async () => {
         Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        await Api.get('/api/user')
+        await Api.get('/api/admin/users')
             .then((response) => {
                 setUsers(response.data.data.data);
             })
