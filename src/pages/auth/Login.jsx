@@ -47,8 +47,9 @@ export default function Login() {
                 console.log(response.data.user.role);
                 if (response.data.user.role === 'WARGA') {
                     navigate(`/warga/${response.data.user.id}`);
+                } else {
+                    navigate(`/admin/${response.data.user.id}`);
                 }
-                navigate('/admin');
             })
             .catch((error) => {
                 failedNotification();
