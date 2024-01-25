@@ -12,7 +12,7 @@ export default function IndexServices() {
 
     const fetchDataServices = async () => {
         Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        await Api.get('/api/service')
+        await Api.get('/api/services')
             .then(response => {
                 setServices(response.data.data.data);
             })

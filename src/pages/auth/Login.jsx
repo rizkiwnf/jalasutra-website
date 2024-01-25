@@ -48,7 +48,7 @@ export default function Login() {
                 if (response.data.user.role === 'WARGA') {
                     navigate(`/warga/${response.data.user.id}`);
                 } else {
-                    navigate(`/admin/${response.data.user.id}`);
+                    navigate('/home');
                 }
             })
             .catch((error) => {

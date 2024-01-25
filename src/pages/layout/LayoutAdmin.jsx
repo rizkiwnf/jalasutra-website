@@ -11,7 +11,6 @@ import { RiMailSendFill, RiCustomerService2Fill } from "react-icons/ri";
 import Loader from "../../components/Loader";
 
 const LayoutAdmin = () => {
-    const [users, setUsers] = useState([]);
     const [admin, setAdmin] = useState("");
 
     const token = localStorage.getItem('token');
@@ -19,14 +18,6 @@ const LayoutAdmin = () => {
     const { id } = useParams();
 
     const navigate = useNavigate();
-
-    const fetchDataUser = async () => {
-        Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        await Api.get('/api/admin/users')
-            .then((response) => {
-                setUsers(response.data.data.data);
-            })
-    }
 
     const fetchAuthUser = async () => {
         Api.defaults.headers.common['Authorization'] = `Bearer ${token}`
@@ -40,7 +31,6 @@ const LayoutAdmin = () => {
         if (!token) {
             navigate('/login');
         }
-        fetchDataUser();
         fetchAuthUser();
         // eslint-disable-next-line
     }, []);
