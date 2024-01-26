@@ -54,7 +54,7 @@ function App() {
           <Route path="surat" element={<UserMail />} />
         </Route>
         {/* Admin Page Route Path */}
-        <Route path="/home" element={<LayoutAdmin />}>
+        <Route path="/admin/:id" element={<LayoutAdmin />}>
           <Route index element={<AdminHome />} />
           <Route path="services" element={<AdminServicesIndex />} />
           <Route path="service/create" element={<AdminServicesCreate />} />
